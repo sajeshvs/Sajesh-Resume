@@ -1421,9 +1421,8 @@
                 <h3>🧘‍♂️ Daily Practice Regimen</h3>
                 <p><strong>Morning Sadhana (4:30-6:30 AM):</strong></p>
                 <ul>
-                    <li><strong>Shodashi Japa:</strong> 108 repetitions daily</li>
-                    <li><strong>Dakshina Kali Mantra:</strong> 108 repetitions for protection and clarity</li>
-                    <li><strong>Gayathri Mantra:</strong> 108 repetitions for purification and clarity</li>
+                    <li><strong>Shodashi Japa:</strong> 15,000 repetitions daily using rudraksha mala</li>
+                    <li><strong>Dakshina Kali Mantra:</strong> 5,000 repetitions for protection and clarity</li>
                     <li><strong>Ujjayi Pranayama:</strong> 20-minute sessions for pranic stabilization</li>
                     <li><strong>MahaShodashi Kriya:</strong> Advanced techniques for kundalini awakening along ida/pingala nadis</li>
                 </ul>
@@ -1616,6 +1615,9 @@
         });
 
         // Enhanced Modal Functionality - Phase 2
+        // Chart instances storage
+        const modalCharts = {};
+
         // Focus trap utility
         function trapFocus(modal) {
             const focusable = modal.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
@@ -1639,18 +1641,428 @@
             });
         }
 
-        // Open modal with accessibility
+        // Function to create modal charts
+        function createModalChart(chartId, config) {
+            const canvas = document.getElementById(chartId);
+            if (canvas && !modalCharts[chartId]) {
+                modalCharts[chartId] = new Chart(canvas, config);
+            }
+        }
+
+        // Open modal with accessibility and chart rendering
         function openModal(popupId) {
             const popup = document.getElementById(popupId);
             if (!popup) return;
             popup.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
             // Focus modal content for accessibility
             const content = popup.querySelector('.popup-content');
             if (content) {
                 content.setAttribute('tabindex', '-1');
                 content.focus();
                 trapFocus(content);
+            }
+
+            // Render chart for this modal if it has one
+            setTimeout(() => renderModalChart(popupId), 100);
+        }
+
+        // Function to render charts when modal opens
+        function renderModalChart(popupId) {
+            switch(popupId) {
+                case 'summary-popup':
+                    createModalChart('philosophy-chart', {
+                        type: 'pie',
+                        data: {
+                            labels: ['Technical Skills', 'Mindfulness', 'Holistic Approach', 'Continuous Learning'],
+                            datasets: [{
+                                data: [35, 25, 25, 15],
+                                backgroundColor: [
+                                    'rgba(14, 165, 233, 0.7)',
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(101, 163, 13, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ]
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    break;
+
+                case 'popup-mvl':
+                    createModalChart('mvl-detail-chart', {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Migration', 'DLP Coverage', 'SOC Automation', 'Zero-Trust'],
+                            datasets: [{
+                                data: [100, 95, 88, 99],
+                                backgroundColor: [
+                                    'rgba(14, 165, 233, 0.7)',
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(101, 163, 13, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(14, 165, 233, 1)',
+                                    'rgba(249, 115, 22, 1)',
+                                    'rgba(101, 163, 13, 1)',
+                                    'rgba(139, 92, 246, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    break;
+
+                case 'popup-purnayoo':
+                    createModalChart('purnayoo-detail-chart', {
+                        type: 'bar',
+                        data: {
+                            labels: ['ERP Uptime', 'Clinician Adoption', 'Ticket Drop', 'Wi-Fi Coverage'],
+                            datasets: [{
+                                label: 'Hospital IT Metrics',
+                                data: [98, 92, 30, 100],
+                                backgroundColor: [
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(249, 115, 22, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(249, 115, 22, 1)',
+                                    'rgba(249, 115, 22, 1)',
+                                    'rgba(249, 115, 22, 1)',
+                                    'rgba(249, 115, 22, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-nagarjuna':
+                    createModalChart('nagarjuna-detail-chart', {
+                        type: 'radar',
+                        data: {
+                            labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation'],
+                            datasets: [{
+                                label: 'ERP & Security Metrics',
+                                data: [90, 33, 98, 100],
+                                backgroundColor: 'rgba(101, 163, 13, 0.2)',
+                                borderColor: 'rgba(101, 163, 13, 1)',
+                                pointBackgroundColor: 'rgba(101, 163, 13, 1)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgba(101, 163, 13, 1)'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                r: {
+                                    angleLines: { display: true },
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-ltc':
+                    createModalChart('ltc-detail-chart', {
+                        type: 'bar',
+                        data: {
+                            labels: ['VSAT Uptime', 'Deployment Speed', 'Data Integrity', 'Kit Re-use'],
+                            datasets: [{
+                                label: 'Field Operations',
+                                data: [99, 85, 95, 80],
+                                backgroundColor: [
+                                    'rgba(139, 92, 246, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(139, 92, 246, 1)',
+                                    'rgba(139, 92, 246, 1)',
+                                    'rgba(139, 92, 246, 1)',
+                                    'rgba(139, 92, 246, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-kbr':
+                    createModalChart('kbr-detail-chart', {
+                        type: 'radar',
+                        data: {
+                            labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Security Compliance'],
+                            datasets: [{
+                                label: 'Xerox Fleet Operations',
+                                data: [98, 92, 60, 95],
+                                backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                                borderColor: 'rgba(16, 185, 129, 1)',
+                                pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgba(16, 185, 129, 1)'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                r: {
+                                    angleLines: { display: true },
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-accel':
+                    createModalChart('accel-detail-chart', {
+                        type: 'bar',
+                        data: {
+                            labels: ['Malware Drop', 'Server Uptime', 'Link Latency Cut', 'Zero Downtime'],
+                            datasets: [{
+                                label: 'DHL Network Operations',
+                                data: [90, 99, 35, 100],
+                                backgroundColor: [
+                                    'rgba(168, 85, 247, 0.7)',
+                                    'rgba(168, 85, 247, 0.7)',
+                                    'rgba(168, 85, 247, 0.7)',
+                                    'rgba(168, 85, 247, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(168, 85, 247, 1)',
+                                    'rgba(168, 85, 247, 1)',
+                                    'rgba(168, 85, 247, 1)',
+                                    'rgba(168, 85, 247, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-skills':
+                    createModalChart('learning-chart', {
+                        type: 'radar',
+                        data: {
+                            labels: ['Pomodoro', 'Hands-on', 'Cross-discipline', 'Mentoring'],
+                            datasets: [{
+                                label: 'Learning Methodology',
+                                data: [92, 90, 85, 95],
+                                backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                                borderColor: 'rgba(14, 165, 233, 1)',
+                                pointBackgroundColor: 'rgba(14, 165, 233, 1)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgba(14, 165, 233, 1)'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                r: {
+                                    angleLines: { display: true },
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-meditation':
+                    createModalChart('meditation-chart', {
+                        type: 'bar',
+                        data: {
+                            labels: ['Daily Japa', 'Session Length', 'Students Guided', 'Research Logs'],
+                            datasets: [{
+                                label: 'Meditation Practice',
+                                data: [100, 120, 100, 80],
+                                backgroundColor: [
+                                    'rgba(139, 92, 246, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(139, 92, 246, 1)',
+                                    'rgba(139, 92, 246, 1)',
+                                    'rgba(139, 92, 246, 1)',
+                                    'rgba(139, 92, 246, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 120
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-palmistry':
+                    createModalChart('palmistry-chart', {
+                        type: 'pie',
+                        data: {
+                            labels: ['Classical Study', 'Kerala Ridge Patterns', 'AI Development', 'Beta Testing'],
+                            datasets: [{
+                                data: [30, 25, 30, 15],
+                                backgroundColor: [
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(101, 163, 13, 0.7)',
+                                    'rgba(14, 165, 233, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ]
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    break;
+
+                case 'popup-yoga':
+                    createModalChart('yoga-chart', {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Panchakarma Therapy', 'Oil Blend Design', 'Pranayama Circuits', 'Class Teaching'],
+                            datasets: [{
+                                data: [35, 25, 20, 20],
+                                backgroundColor: [
+                                    'rgba(101, 163, 13, 0.7)',
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(14, 165, 233, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ]
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    break;
+
+                case 'popup-travel':
+                    createModalChart('travel-chart', {
+                        type: 'bar',
+                        data: {
+                            labels: ['Kailash Circuit', 'India Motorcycle', 'Afghan Logistics'],
+                            datasets: [{
+                                label: 'Adventure Metrics',
+                                data: [95, 88, 75],
+                                backgroundColor: [
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(101, 163, 13, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(249, 115, 22, 1)',
+                                    'rgba(101, 163, 13, 1)',
+                                    'rgba(139, 92, 246, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
+
+                case 'popup-maker':
+                    createModalChart('maker-chart', {
+                        type: 'radar',
+                        data: {
+                            labels: ['App Development', 'Automotive Tuning', 'Fabrication', 'Integration'],
+                            datasets: [{
+                                label: 'Maker Skills',
+                                data: [85, 75, 90, 88],
+                                backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                                borderColor: 'rgba(249, 115, 22, 1)',
+                                pointBackgroundColor: 'rgba(249, 115, 22, 1)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                r: {
+                                    angleLines: { display: true },
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            }
+                        }
+                    });
+                    break;
             }
         }
 
@@ -1834,22 +2246,7 @@
                 }
             });
 
-            // Philosophy Chart
-            new Chart(document.getElementById('philosophy-chart'), {
-                type: 'pie',
-                data: {
-                    labels: ['Technical Skills', 'Mindfulness', 'Holistic Approach', 'Continuous Learning'],
-                    datasets: [{
-                        data: [35, 25, 25, 15],
-                        backgroundColor: [
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(101, 163, 13, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ]
-                    }]
-                }
-            });
+            // Philosophy Chart (this will be rendered in modal on-demand)
 
             // Nagarjuna Chart
             new Chart(document.getElementById('nagarjuna-chart'), {
@@ -1954,435 +2351,20 @@
                 }
             });
 
-            // MVL Detail Chart
-            new Chart(document.getElementById('mvl-detail-chart'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Migration', 'DLP Coverage', 'SOC Automation', 'Zero-Trust'],
-                    datasets: [{
-                        data: [100, 95, 88, 99],
-                        backgroundColor: [
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(101, 163, 13, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(14, 165, 233, 1)',
-                            'rgba(249, 115, 22, 1)',
-                            'rgba(101, 163, 13, 1)',
-                            'rgba(139, 92, 246, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
+            // Modal charts will be rendered on-demand when modals open
 
-            // Purnayoo Detail Chart
-            new Chart(document.getElementById('purnayoo-detail-chart'), {
-                type: 'bar',
-                data: {
-                    labels: ['ERP Uptime', 'Clinician Adoption', 'Ticket Drop', 'Wi-Fi Coverage'],
-                    datasets: [{
-                        label: 'Hospital IT Metrics',
-                        data: [98, 92, 30, 100],
-                        backgroundColor: [
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(249, 115, 22, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(249, 115, 22, 1)',
-                            'rgba(249, 115, 22, 1)',
-                            'rgba(249, 115, 22, 1)',
-                            'rgba(249, 115, 22, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    }
-                }
-            });
-
-            // Nagarjuna Detail Chart
-            new Chart(document.getElementById('nagarjuna-detail-chart'), {
-                type: 'radar',
-                data: {
-                    labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation'],
-                    datasets: [{
-                        label: 'ERP & Security Metrics',
-                        data: [90, 33, 98, 100],
-                        backgroundColor: 'rgba(101, 163, 13, 0.2)',
-                        borderColor: 'rgba(101, 163, 13, 1)',
-                        pointBackgroundColor: 'rgba(101, 163, 13, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(101, 163, 13, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: {
-                                display: true
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 100
-                        }
-                    }
-                }
-            });
-
-            // LTC Detail Chart
-            new Chart(document.getElementById('ltc-detail-chart'), {
-                type: 'bar',
-                data: {
-                    labels: ['VSAT Uptime', 'Deployment Speed', 'Data Integrity', 'Kit Re-use'],
-                    datasets: [{
-                        label: 'Field Operations',
-                        data: [99, 85, 95, 80],
-                        backgroundColor: [
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(139, 92, 246, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    }
-                }
-            });
-
-            // Learning Chart
-            new Chart(document.getElementById('learning-chart'), {
-                type: 'radar',
-                data: {
-                    labels: ['Pomodoro', 'Hands-on', 'Cross-discipline', 'Mentoring'],
-                    datasets: [{
-                        label: 'Learning Methodology',
-                        data: [92, 90, 85, 95],
-                        backgroundColor: 'rgba(14, 165, 233, 0.2)',
-                        borderColor: 'rgba(14, 165, 233, 1)',
-                        pointBackgroundColor: 'rgba(14, 165, 233, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(14, 165, 233, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: {
-                                display: true
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 100
-                        }
-                    }
-                }
-            });
-
-            // Meditation Chart
-            new Chart(document.getElementById('meditation-chart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Daily Japa', 'Session Length', 'Students Guided', 'Research Logs'],
-                    datasets: [{
-                        label: 'Meditation Practice',
-                        data: [100, 120, 100, 80],
-                        backgroundColor: [
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(139, 92, 246, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 120
-                        }
-                    }
-                }
-            });
-
-            // Palmistry Chart
-            new Chart(document.getElementById('palmistry-chart'), {
-                type: 'pie',
-                data: {
-                    labels: ['Classical Study', 'Kerala Ridge Patterns', 'AI Development', 'Beta Testing'],
-                    datasets: [{
-                        data: [30, 25, 30, 15],
-                        backgroundColor: [
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(101, 163, 13, 0.7)',
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
-
-            // Yoga Chart
-            new Chart(document.getElementById('yoga-chart'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Panchakarma Therapy', 'Oil Blend Design', 'Pranayama Circuits', 'Class Teaching'],
-                    datasets: [{
-                        data: [35, 25, 20, 20],
-                        backgroundColor: [
-                            'rgba(101, 163, 13, 0.7)',
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
-
-            // Travel Chart
-            new Chart(document.getElementById('travel-chart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Kailash Circuit', 'India Motorcycle', 'Afghan Logistics'],
-                    datasets: [{
-                        label: 'Adventure Metrics',
-                        data: [95, 88, 75],
-                        backgroundColor: [
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(101, 163, 13, 0.7)',
-                            'rgba(139, 92, 246, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(249, 115, 22, 1)',
-                            'rgba(101, 163, 13, 1)',
-                            'rgba(139, 92, 246, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    }
-                }
-            });
-
-            // Maker Chart
-            new Chart(document.getElementById('maker-chart'), {
-                type: 'radar',
-                data: {
-                    labels: ['App Development', 'Automotive Tuning', 'Fabrication', 'Integration'],
-                    datasets: [{
-                        label: 'Maker Skills',
-                        data: [85, 75, 90, 88],
-                        backgroundColor: 'rgba(249, 115, 22, 0.2)',
-                        borderColor: 'rgba(249, 115, 22, 1)',
-                        pointBackgroundColor: 'rgba(249, 115, 22, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: {
-                                display: true
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 100
-                        }
-                    }
-                }
-            });
-
-            // KBR Chart
-            new Chart(document.getElementById('kbr-chart'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Security Compliance'],
-                    datasets: [{
-                        data: [98, 92, 60, 95],
-                        backgroundColor: [
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(16, 185, 129, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(16, 185, 129, 1)',
-                            'rgba(16, 185, 129, 1)',
-                            'rgba(16, 185, 129, 1)',
-                            'rgba(16, 185, 129, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
-
-            // Accel Chart
-            new Chart(document.getElementById('accel-chart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Malware Drop', 'Server Uptime', 'Link Latency Cut', 'Zero Downtime'],
-                    datasets: [{
-                        label: 'System Administration',
-                        data: [90, 99, 35, 100],
-                        backgroundColor: [
-                            'rgba(168, 85, 247, 0.7)',
-                            'rgba(168, 85, 247, 0.7)',
-                            'rgba(168, 85, 247, 0.7)',
-                            'rgba(168, 85, 247, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(168, 85, 247, 1)',
-                            'rgba(168, 85, 247, 1)',
-                            'rgba(168, 85, 247, 1)',
-                            'rgba(168, 85, 247, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    }
-                }
-            });
-
-            // KBR Detail Chart
-            new Chart(document.getElementById('kbr-detail-chart'), {
-                type: 'radar',
-                data: {
-                    labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Security Compliance'],
-                    datasets: [{
-                        label: 'Xerox Fleet Operations',
-                        data: [98, 92, 60, 95],
-                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                        borderColor: 'rgba(16, 185, 129, 1)',
-                        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(16, 185, 129, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: {
-                                display: true
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 100
-                        }
-                    }
-                }
-            });
-
-            // Accel Detail Chart
-            new Chart(document.getElementById('accel-detail-chart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Malware Drop', 'Server Uptime', 'Link Latency Cut', 'Zero Downtime'],
-                    datasets: [{
-                        label: 'DHL Network Operations',
-                        data: [90, 99, 35, 100],
-                        backgroundColor: [
-                            'rgba(168, 85, 247, 0.7)',
-                            'rgba(168, 85, 247, 0.7)',
-                            'rgba(168, 85, 247, 0.7)',
-                            'rgba(168, 85, 247, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(168, 85, 247, 1)',
-                            'rgba(168, 85, 247, 1)',
-                            'rgba(168, 85, 247, 1)',
-                            'rgba(168, 85, 247, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    }
-                }
-            });
+            // MVL Detail Chart (rendered on modal open)
+            // Purnayoo Detail Chart (rendered on modal open)
+            // Nagarjuna Detail Chart (rendered on modal open)
+            // LTC Detail Chart (rendered on modal open)
+            // Learning Chart (rendered on modal open)
+            // Meditation Chart (rendered on modal open)
+            // Palmistry Chart (rendered on modal open)
+            // Yoga Chart (rendered on modal open)
+            // Travel Chart (rendered on modal open)
+            // Maker Chart (rendered on modal open)
+            // KBR Detail Chart (rendered on modal open)
+            // Accel Detail Chart (rendered on modal open)
         });
     </script>
 </body>
