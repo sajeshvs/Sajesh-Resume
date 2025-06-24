@@ -654,6 +654,8 @@
                             <li>Designed Sentinel-driven SOC; MTTR cut from 2h → 20min</li>
                             <li>Rolled out Entra DLP & Purview labels protecting CUI</li>
                             <li>Launched Zero-Trust access with Zscaler ZPA</li>
+                            <li>Admin for <b>Procore (FedRAMP Cloud)</b>—configured SSO, role matrices, and daily backup exports. <span class="interactive-icon" data-popup-id="popup_procore">📖</span></li>
+                            <li>Rolled out <b>Acronis Backup Cloud</b> to 280 endpoints; achieved 14-day RPO and immutable storage.</li>
                             <li>Mentored 2-person IT crew; ticket CSAT ≥ 97%</li>
                         </ul>
                         <div class="chart-container">
@@ -779,13 +781,13 @@
                 <div class="skill-category">
                     <h3>Cloud & Security</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Microsoft 365 GCC G5</span>
-                        <span class="skill-tag">Azure IAM</span>
-                        <span class="skill-tag">Sentinel</span>
-                        <span class="skill-tag">Defender XDR</span>
-                        <span class="skill-tag">Purview DLP</span>
-                        <span class="skill-tag">Zscaler ZPA</span>
-                        <span class="skill-tag">BeyondTrust</span>
+                        <span class="skill-tag">Microsoft 365 GCC G5 (tenant-level admin)</span>
+                        <span class="skill-tag">Windows Server 2003 → 2025 <span class="interactive-icon" data-popup-id="popup_windows" style="cursor: pointer;">📖</span></span>
+                        <span class="skill-tag">Hyper-V virtualization <span class="interactive-icon" data-popup-id="popup_hyperv" style="cursor: pointer;">📖</span></span>
+                        <span class="skill-tag">Sentinel · Defender XDR · Purview DLP</span>
+                        <span class="skill-tag">Zscaler ZPA & ZIA <span class="interactive-icon" data-popup-id="popup_zscaler" style="cursor: pointer;">📖</span></span>
+                        <span class="skill-tag">Acronis Backup Cloud <span class="interactive-icon" data-popup-id="popup_acronis" style="cursor: pointer;">📖</span></span>
+                        <span class="skill-tag">BeyondTrust Remote Support</span>
                     </div>
                 </div>
                 
@@ -822,8 +824,8 @@
                     </div>
                 </div>
             </div>
-            <div class="chart-container" style="height: 300px; margin-top: 40px;">
-                <canvas id="skills-chart"></canvas>
+            <div class="chart-container" style="height: 300px; margin-top: 40px; display: flex; justify-content: center; align-items: center;">
+                <canvas id="skills-chart" style="max-width: 100%; max-height: 100%;"></canvas>
             </div>
             <div style="text-align: center; margin-top: 30px;">
                 <button class="btn btn-orange popup-btn" data-popup="popup-skills">Learn About My Learning Approach</button>
@@ -1229,6 +1231,53 @@
         </div>
     </div>
 
+    <!-- New Popups for Skills Bullets -->
+    <div class="popup-overlay" id="popup_windows">
+        <div class="popup-content">
+            <div class="popup-close"><i class="fas fa-times"></i></div>
+            <h2 class="popup-title">Windows Server 2003 → 2025</h2>
+            <div class="popup-text">
+                Cut my teeth on WS 2003 NTFS quotas, mastered WS 2008 R2 Failover Clustering, and now pilot WS 2025 previews with hot-patching. Highlights include Active Directory forest migrations, DFS-R consolidation, and Storage Replica DR tests.
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popup_hyperv">
+        <div class="popup-content">
+            <div class="popup-close"><i class="fas fa-times"></i></div>
+            <h2 class="popup-title">Hyper-V & Failover Clustering</h2>
+            <div class="popup-text">
+                Built a 4-node CSV cluster hosting 60 VMs (SQL, SharePoint, VoIP) with live-migration, Veeam backups, and Shielded-VM TPM support.
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popup_zscaler">
+        <div class="popup-content">
+            <div class="popup-close"><i class="fas fa-times"></i></div>
+            <h2 class="popup-title">Zscaler ZPA & ZIA</h2>
+            <div class="popup-text">
+                Implemented Zero-Trust for apps (ZPA) and secure web gateway (ZIA), integrating with Entra Conditional Access. Achieved 99.9 % SLA and full SSL inspection without on-prem appliances.
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popup_acronis">
+        <div class="popup-content">
+            <div class="popup-close"><i class="fas fa-times"></i></div>
+            <h2 class="popup-title">Acronis Backup Cloud</h2>
+            <div class="popup-text">
+                Endpoint-to-cloud backups with AES-256, MFA, and immutable S3. Automated weekly backup integrity tests and Slack alerts via API.
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popup_procore">
+        <div class="popup-content">
+            <div class="popup-close"><i class="fas fa-times"></i></div>
+            <h2 class="popup-title">Procore Admin (Gov Cloud)</h2>
+            <div class="popup-text">
+                Set up FedRAMP Procore tenant, SAML SSO, granular permission templates, and nightly data-lake export for BI dashboards. Trained 40 project managers, trimmed RFIs turnaround by 22 %.
+            </div>
+        </div>
+    </div>
+
     <script>
         // Theme Switching
         const lightThemeBtn = document.getElementById('light-theme');
@@ -1275,6 +1324,16 @@
                     popup.classList.remove('active');
                     document.body.style.overflow = 'auto';
                 }
+            });
+        });
+
+        // Interactive icons functionality
+        const interactiveIcons = document.querySelectorAll('.interactive-icon');
+        interactiveIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                const popupId = icon.getAttribute('data-popup-id');
+                document.getElementById(popupId).classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         });
 
