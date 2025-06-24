@@ -725,6 +725,48 @@
                         <button class="btn popup-btn" data-popup="popup-ltc">Details</button>
                     </div>
                 </div>
+
+                <!-- KBR (NATO Contract) -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>KBR (NATO Contract)</h3>
+                        <div class="date">Feb 2008 - Jan 2010</div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Maintained 120+ Xerox WorkCentre devices across NATO bases</li>
+                            <li>Averaged ≤2h response to service calls</li>
+                            <li>Cut unexpected outages by 60% with predictive maintenance</li>
+                            <li>Enforced TLS/802.1X on all printers for security</li>
+                            <li>Blocked rogue USB firmware loads per DoD advisories</li>
+                        </ul>
+                        <div class="chart-container">
+                            <canvas id="kbr-chart"></canvas>
+                        </div>
+                        <button class="btn popup-btn" data-popup="popup-kbr">Details</button>
+                    </div>
+                </div>
+
+                <!-- Accel Frontline -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Accel Frontline (DHL Contract)</h3>
+                        <div class="date">Aug 2006 - Jan 2008</div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Supported 400+ DHL workstations and 25 branch servers</li>
+                            <li>Zero unscheduled downtime in peak season '07</li>
+                            <li>Deployed McAfee ePO; malware incidents < 1 per quarter</li>
+                            <li>Used Wireshark & Iperf for packet forensics</li>
+                            <li>Cut file-transfer time by 35% on MPLS links</li>
+                        </ul>
+                        <div class="chart-container">
+                            <canvas id="accel-chart"></canvas>
+                        </div>
+                        <button class="btn popup-btn" data-popup="popup-accel">Details</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -961,22 +1003,122 @@
         </div>
     </div>
 
+    <!-- Nagarjuna Ayurveda Popup -->
+    <div class="popup-overlay" id="popup-nagarjuna">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Nagarjuna Ayurveda — ERP Roll-out & Secure Infrastructure</h2>
+            <div class="popup-text">
+                <p><strong>ERP Implementation:</strong> Led a five-month Microsoft SQL + Odoo deployment that unified pharmacy, admissions, and billing; paper usage dropped 40%.</p>
+                
+                <p><strong>Network Hardening:</strong> Segmented VLANs for patient-data vs. guest Wi-Fi, introduced off-line snapshot backup, and configured Sentinel alerts for EMR tables.</p>
+                
+                <p><strong>Staff Enablement:</strong> Wrote SOPs and ran 10 hands-on workshops so clinicians could self-service reports—cut IT tickets by a third.</p>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="nagarjuna-detail-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- LTC Popup -->
+    <div class="popup-overlay" id="popup-ltc">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Lakeshore Toltest — Field-IT in Conflict Zones</h2>
+            <div class="popup-text">
+                <p>Engineered a VSAT + Cisco ASA backbone for USACE construction camps in UAE, Afghanistan, Iraq.</p>
+                
+                <p>Stood-up ruggedised servers that synced CAD files nightly while prioritising real-time radio/VoIP.</p>
+                
+                <p>Documented a "grab-box" kit (pre-configured switch, PoE AP, solar UPS) for 24-h site stand-ups.</p>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="ltc-detail-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- KBR Popup -->
+    <div class="popup-overlay" id="popup-kbr">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">KBR (NATO Contract) — Xerox Fleet Reliability Ops</h2>
+            <div class="popup-text">
+                <p><strong>MFP Fleet Lead:</strong> Maintained 120+ Xerox WorkCentre devices across five NATO bases, averaging ≤2h response to service calls.</p>
+                
+                <p><strong>Predictive Maintenance:</strong> Analysed meter reads + consumable telemetry; introduced just-in-time toner swaps that cut unexpected outages by 60%.</p>
+                
+                <p><strong>Network Print Security:</strong> Enforced TLS/802.1X on all printers, blocking rogue USB firmware loads noted in DoD advisories.</p>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="kbr-detail-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accel Frontline Popup -->
+    <div class="popup-overlay" id="popup-accel">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Accel Frontline → DHL — Windows & Network Admin</h2>
+            <div class="popup-text">
+                <p><strong>Global Shipment Uptime:</strong> Supported 400+ DHL workstations and 25 branch servers; zero unscheduled downtime in peak season '07.</p>
+                
+                <p><strong>Endpoint Defence:</strong> Deployed & tuned McAfee ePO policies, shrinking malware incidents from weekly to < 1 per quarter.</p>
+                
+                <p><strong>Packet Forensics:</strong> Used Wireshark & Iperf to trace latency spikes on MPLS links, shaving average file-transfer time by 35%.</p>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="accel-detail-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
     <!-- Skills Popup -->
     <div class="popup-overlay" id="popup-skills">
         <div class="popup-content">
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">My Learning Methodology</h2>
+            <h2 class="popup-title">How I Learn Faster, Deeper, and Without Burn-Out</h2>
             <div class="popup-text">
-                <p>My approach to continuous learning combines focused technical sprints with mindfulness techniques:</p>
+                <p><strong>1. Pomodoro × Pranayama</strong><br>
+                25-minute laser-focus sprints on new material, closed by 5 minutes of slow ujjayi breathing. The breath reset lowers cortisol and locks the lesson into long-term memory—letting me stack 8–10 such cycles a day without mental fog.</p>
+                
+                <p><strong>2. Project-First, Docs-Second</strong><br>
+                I begin every topic by framing a micro-project (e.g., "build a Terraform module that auto-labels Sentinel workspaces"). Only after a proof-of-concept works do I deep-dive the documentation— anchoring abstract theory to real muscle memory.</p>
+                
+                <p><strong>3. Cross-Disciplinary Aha!</strong><br>
+                Concepts cross-pollinate fastest when I map them onto something far away:</p>
                 <ul>
-                    <li><strong>Pomodoro + Pranayama:</strong> 25-minute intense learning sessions followed by 5 minutes of ujjayi breathing to reset focus</li>
-                    <li><strong>Hands-on Projects:</strong> Immediate application of new concepts through real-world implementations</li>
-                    <li><strong>Cross-Disciplinary Integration:</strong> Connecting IT concepts with principles from yoga, Ayurveda, and meditation</li>
-                    <li><strong>Peer Teaching:</strong> Solidifying knowledge by mentoring team members on new technologies</li>
+                    <li>Kubernetes affinity ↔ Ayurvedic dosha balancing</li>
+                    <li>Zero-Trust flows ↔ tantric ida/pingala gating</li>
+                    <li>Git branching ↔ yogic chakra sequencing</li>
                 </ul>
-                <p>This methodology has enabled me to achieve multiple Microsoft certifications while maintaining a balanced, holistic lifestyle.</p>
+                <p>This playful analogy hunting forces a 360° grasp instead of rote recall.</p>
+                
+                <p><strong>4. 48-Hour Feedback Loop</strong><br>
+                Within two days of learning any tool I: Write a concise blog snippet or LinkedIn post. Teach it in our internal Teams huddle. Automate at least one dull task with it. Explaining to others exposes my blind spots early.</p>
+                
+                <p><strong>5. Metric-Driven Mastery</strong><br>
+                I track Skill Scorecards (0–100) for Cloud, Security, Automation, Leadership. Every Friday a Notion formula tallies: labs done, pages read, incidents resolved. Anything < 80 triggers a learning sprint the following week.</p>
+                
+                <p><strong>6. AI as Speed-Coach, Not Crutch</strong><br>
+                Copilot/Cursor drafts code or summarizes RFCs, but I always re-derive the logic line-by-line. The goal is accelerated comprehension, not autopilot dependency.</p>
+                
+                <p><strong>7. Mind-Body Hygiene</strong><br>
+                Daily regime: 5 AM wake-up, 20k steps, no refined sugar, vegetarian diet, 20,000 mantra reps, 7h sleep. Sharp code comes from a calibrated nervous system.</p>
+                
+                <p><strong>Result:</strong> This framework powered two Microsoft Expert certs in 2024, a 4× faster Sentinel rollout at MVL, and zero study-burnout days in the past three years.</p>
             </div>
             <div class="popup-chart-container">
                 <canvas id="learning-chart"></canvas>
@@ -1003,6 +1145,86 @@
             </div>
             <div class="popup-chart-container">
                 <canvas id="meditation-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Palmistry Popup -->
+    <div class="popup-overlay" id="popup-palmistry">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Palmistry Knowledge ↔ AI App</h2>
+            <div class="popup-text">
+                <p>Two decades studying classical chiromancy (Benham, Cheiro) + Kerala school ridge-pattern lore.</p>
+                
+                <p>Building "PalmAI" (React + Supabase + TensorFlow.js) to auto-label mounts, dermatoglyphics, and export a PDF reading.</p>
+                
+                <p>Beta tests on 50 palms show 87% concordance with my manual assessments.</p>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="palmistry-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yoga Popup -->
+    <div class="popup-overlay" id="popup-yoga">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Yoga & Ayurveda — Practical Therapy</h2>
+            <div class="popup-text">
+                <p>Diploma in Panchakarma therapy; specialise in tech-neck and stress interventions.</p>
+                
+                <p>Design custom herbal oil blends (karpooradi base + ashwagandha) and integrate pranayama/ujjayi circuits for clients.</p>
+                
+                <p>Conduct weekly sunrise Vinyasa classes on Dubai Creek boardwalk (avg. 25 attendees).</p>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="yoga-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Travel Popup -->
+    <div class="popup-overlay" id="popup-travel">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Solo Travel Highlights</h2>
+            <div class="popup-text">
+                <ul>
+                    <li>Kailash Mansarovar circuit (5 600 m) — documented altitude-induced HRV shifts.</li>
+                    <li>West-coast India motorcycle ride (3 600 km) capturing temple acoustics for mantra-chant tonal analysis.</li>
+                    <li>Afghan logistics stint taught lean ops: one laptop, one satellite modem, one kettlebell.</li>
+                </ul>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="travel-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Maker Popup -->
+    <div class="popup-overlay" id="popup-maker">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Maker / Tinkerer Projects</h2>
+            <div class="popup-text">
+                <ul>
+                    <li><strong>BreathCounter</strong> – React Native app that uses phone gyro to count pranayama cycles.</li>
+                    <li><strong>ECU tune on Suzuki Swift:</strong> 12% fuel-efficiency gain verified by OBD II logs.</li>
+                    <li><strong>Fabricated a collapsible welding bench;</strong> doubles as camera rig for palm-photo shoots.</li>
+                </ul>
+            </div>
+            <div class="popup-chart-container">
+                <canvas id="maker-chart"></canvas>
             </div>
         </div>
     </div>
@@ -1168,6 +1390,539 @@
                             'rgba(139, 92, 246, 0.7)'
                         ]
                     }]
+                }
+            });
+
+            // Nagarjuna Chart
+            new Chart(document.getElementById('nagarjuna-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation'],
+                    datasets: [{
+                        label: 'Performance Metrics',
+                        data: [90, 33, 98, 100],
+                        backgroundColor: [
+                            'rgba(101, 163, 13, 0.7)',
+                            'rgba(101, 163, 13, 0.7)',
+                            'rgba(101, 163, 13, 0.7)',
+                            'rgba(101, 163, 13, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(101, 163, 13, 1)',
+                            'rgba(101, 163, 13, 1)',
+                            'rgba(101, 163, 13, 1)',
+                            'rgba(101, 163, 13, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // LTC Chart
+            new Chart(document.getElementById('ltc-chart'), {
+                type: 'radar',
+                data: {
+                    labels: ['VSAT Uptime', 'Deployment Speed', 'Data Integrity', 'Kit Re-use'],
+                    datasets: [{
+                        label: 'Field Operations',
+                        data: [99, 85, 95, 80],
+                        backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                        borderColor: 'rgba(139, 92, 246, 1)',
+                        pointBackgroundColor: 'rgba(139, 92, 246, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(139, 92, 246, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // Certifications Chart
+            new Chart(document.getElementById('certs-chart'), {
+                type: 'horizontalBar',
+                data: {
+                    labels: ['Azure SA', 'M365 Admin', 'MCSE', 'MCSA', 'Xerox SE'],
+                    datasets: [{
+                        label: 'Certification Proficiency',
+                        data: [100, 100, 90, 90, 85],
+                        backgroundColor: [
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(14, 165, 233, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(14, 165, 233, 1)',
+                            'rgba(14, 165, 233, 1)',
+                            'rgba(14, 165, 233, 1)',
+                            'rgba(14, 165, 233, 1)',
+                            'rgba(14, 165, 233, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // MVL Detail Chart
+            new Chart(document.getElementById('mvl-detail-chart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Migration', 'DLP Coverage', 'SOC Automation', 'Zero-Trust'],
+                    datasets: [{
+                        data: [100, 95, 88, 99],
+                        backgroundColor: [
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(101, 163, 13, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(14, 165, 233, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(101, 163, 13, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Purnayoo Detail Chart
+            new Chart(document.getElementById('purnayoo-detail-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['ERP Uptime', 'Clinician Adoption', 'Ticket Drop', 'Wi-Fi Coverage'],
+                    datasets: [{
+                        label: 'Hospital IT Metrics',
+                        data: [98, 92, 30, 100],
+                        backgroundColor: [
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(249, 115, 22, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(249, 115, 22, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Nagarjuna Detail Chart
+            new Chart(document.getElementById('nagarjuna-detail-chart'), {
+                type: 'radar',
+                data: {
+                    labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation'],
+                    datasets: [{
+                        label: 'ERP & Security Metrics',
+                        data: [90, 33, 98, 100],
+                        backgroundColor: 'rgba(101, 163, 13, 0.2)',
+                        borderColor: 'rgba(101, 163, 13, 1)',
+                        pointBackgroundColor: 'rgba(101, 163, 13, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(101, 163, 13, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // LTC Detail Chart
+            new Chart(document.getElementById('ltc-detail-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['VSAT Uptime', 'Deployment Speed', 'Data Integrity', 'Kit Re-use'],
+                    datasets: [{
+                        label: 'Field Operations',
+                        data: [99, 85, 95, 80],
+                        backgroundColor: [
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Learning Chart
+            new Chart(document.getElementById('learning-chart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Pomodoro', 'Hands-on', 'Cross-discipline', 'Mentoring'],
+                    datasets: [{
+                        label: 'Learning Methodology',
+                        data: [92, 90, 85, 95],
+                        backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                        borderColor: 'rgba(14, 165, 233, 1)',
+                        pointBackgroundColor: 'rgba(14, 165, 233, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(14, 165, 233, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // Meditation Chart
+            new Chart(document.getElementById('meditation-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Daily Japa', 'Session Length', 'Students Guided', 'Research Logs'],
+                    datasets: [{
+                        label: 'Meditation Practice',
+                        data: [100, 120, 100, 80],
+                        backgroundColor: [
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 120
+                        }
+                    }
+                }
+            });
+
+            // Palmistry Chart
+            new Chart(document.getElementById('palmistry-chart'), {
+                type: 'pie',
+                data: {
+                    labels: ['Classical Study', 'Kerala Ridge Patterns', 'AI Development', 'Beta Testing'],
+                    datasets: [{
+                        data: [30, 25, 30, 15],
+                        backgroundColor: [
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(101, 163, 13, 0.7)',
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Yoga Chart
+            new Chart(document.getElementById('yoga-chart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Panchakarma Therapy', 'Oil Blend Design', 'Pranayama Circuits', 'Class Teaching'],
+                    datasets: [{
+                        data: [35, 25, 20, 20],
+                        backgroundColor: [
+                            'rgba(101, 163, 13, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Travel Chart
+            new Chart(document.getElementById('travel-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Kailash Circuit', 'India Motorcycle', 'Afghan Logistics'],
+                    datasets: [{
+                        label: 'Adventure Metrics',
+                        data: [95, 88, 75],
+                        backgroundColor: [
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(101, 163, 13, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(101, 163, 13, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Maker Chart
+            new Chart(document.getElementById('maker-chart'), {
+                type: 'radar',
+                data: {
+                    labels: ['App Development', 'Automotive Tuning', 'Fabrication', 'Integration'],
+                    datasets: [{
+                        label: 'Maker Skills',
+                        data: [85, 75, 90, 88],
+                        backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                        borderColor: 'rgba(249, 115, 22, 1)',
+                        pointBackgroundColor: 'rgba(249, 115, 22, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(249, 115, 22, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // KBR Chart
+            new Chart(document.getElementById('kbr-chart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Security Compliance'],
+                    datasets: [{
+                        data: [98, 92, 60, 95],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(16, 185, 129, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(16, 185, 129, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Accel Chart
+            new Chart(document.getElementById('accel-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Malware Drop', 'Server Uptime', 'Link Latency Cut', 'Zero Downtime'],
+                    datasets: [{
+                        label: 'System Administration',
+                        data: [90, 99, 35, 100],
+                        backgroundColor: [
+                            'rgba(168, 85, 247, 0.7)',
+                            'rgba(168, 85, 247, 0.7)',
+                            'rgba(168, 85, 247, 0.7)',
+                            'rgba(168, 85, 247, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(168, 85, 247, 1)',
+                            'rgba(168, 85, 247, 1)',
+                            'rgba(168, 85, 247, 1)',
+                            'rgba(168, 85, 247, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // KBR Detail Chart
+            new Chart(document.getElementById('kbr-detail-chart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Security Compliance'],
+                    datasets: [{
+                        label: 'Xerox Fleet Operations',
+                        data: [98, 92, 60, 95],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(16, 185, 129, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // Accel Detail Chart
+            new Chart(document.getElementById('accel-detail-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Malware Drop', 'Server Uptime', 'Link Latency Cut', 'Zero Downtime'],
+                    datasets: [{
+                        label: 'DHL Network Operations',
+                        data: [90, 99, 35, 100],
+                        backgroundColor: [
+                            'rgba(168, 85, 247, 0.7)',
+                            'rgba(168, 85, 247, 0.7)',
+                            'rgba(168, 85, 247, 0.7)',
+                            'rgba(168, 85, 247, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(168, 85, 247, 1)',
+                            'rgba(168, 85, 247, 1)',
+                            'rgba(168, 85, 247, 1)',
+                            'rgba(168, 85, 247, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
                 }
             });
         });
