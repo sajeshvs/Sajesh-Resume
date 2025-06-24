@@ -808,6 +808,305 @@
                 border: 2px solid var(--orange);
             }
         }
+
+        /* -------- PRINT STYLES -------- */
+        /* Print dialog styles for dark mode */
+        .dark-mode #print-dialog > div {
+            background: #1e293b !important;
+            color: #f8fafc !important;
+        }
+
+        .dark-mode #print-dialog h2 {
+            color: #f8fafc !important;
+        }
+
+        #print-compact:hover {
+            background: #0284c7 !important;
+        }
+
+        #print-full:hover {
+            background: #ea580c !important;
+        }
+
+        #print-cancel:hover {
+            color: #374151 !important;
+        }
+
+        .dark-mode #print-cancel:hover {
+            color: #9ca3af !important;
+        }
+
+        /* -------- COMMON PRINT RULES -------- */
+        @media print {
+            @page { 
+                size: A4; 
+                margin: 15mm 10mm; 
+            }
+            
+            body * { 
+                print-color-adjust: exact; 
+                -webkit-print-color-adjust: exact; 
+            }
+            
+            header, .theme-switcher, footer, .popup-btn, .social-links, #print-dialog { 
+                display: none !important; 
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 11px;
+                line-height: 1.3;
+            }
+            
+            .container {
+                max-width: none !important;
+                padding: 0 !important;
+            }
+            
+            /* Prevent widows and orphans */
+            p, li {
+                orphans: 3;
+                widows: 3;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid;
+                orphans: 4;
+                widows: 4;
+            }
+        }
+
+        /* -------- COMPACT MODE -------- */
+        @media print {
+            body[data-print="compact"] {
+                font-size: 11px;
+                line-height: 1.3;
+            }
+            
+            body[data-print="compact"] .card {
+                page-break-inside: avoid;
+                margin-bottom: 8px;
+                padding: 12px;
+                border: 1px solid #ddd;
+            }
+            
+            body[data-print="compact"] .chart-container,
+            body[data-print="compact"] .popup-text { 
+                display: none !important; 
+            }
+            
+            body[data-print="compact"] .card-body ul {
+                padding-left: 0;
+                margin: 8px 0;
+            }
+            
+            body[data-print="compact"] .card-body li {
+                margin-bottom: 2px;
+                font-size: 10px;
+            }
+            
+            body[data-print="compact"] .card-header h3 {
+                font-size: 14px;
+                margin-bottom: 4px;
+            }
+            
+            body[data-print="compact"] .date {
+                font-size: 10px;
+                color: #666;
+            }
+            
+            body[data-print="compact"] .name-title h1 {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+            
+            body[data-print="compact"] .name-title h2 {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+            
+            body[data-print="compact"] .contact-info {
+                font-size: 10px;
+                margin-bottom: 16px;
+            }
+            
+            body[data-print="compact"] .skills-grid,
+            body[data-print="compact"] .interests {
+                display: none !important;
+            }
+        }
+
+        /* -------- FULL MODE -------- */
+        @media print {
+            /* Show main content first */
+            body[data-print="full"] .main-content {
+                display: block !important;
+            }
+            
+            /* Hide all popups by default in print */
+            body[data-print="full"] .popup-overlay {
+                display: none !important;
+                position: static !important;
+                background: transparent !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                z-index: auto !important;
+            }
+            
+            /* Force show main experience and summary popups */
+            body[data-print="full"] #summary-popup,
+            body[data-print="full"] #popup-mvl,
+            body[data-print="full"] #popup-purnayoo,
+            body[data-print="full"] #popup-nagarjuna,
+            body[data-print="full"] #popup-ltc,
+            body[data-print="full"] #popup-kbr,
+            body[data-print="full"] #popup-accel,
+            body[data-print="full"] #popup-skills {
+                display: block !important; 
+                position: static !important; 
+                background: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                page-break-before: always;
+                page-break-inside: avoid;
+            }
+            
+            body[data-print="full"] #summary-popup {
+                page-break-before: auto;
+            }
+            
+            body[data-print="full"] .popup-content {
+                box-shadow: none !important; 
+                max-width: 100% !important; 
+                transform: none !important; 
+                padding: 16px 0 !important;
+                position: static !important;
+                background: transparent !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                display: block !important;
+            }
+            
+            body[data-print="full"] .popup-close {
+                display: none !important;
+            }
+            
+            body[data-print="full"] .popup-chart-container {
+                display: block !important;
+                margin: 16px 0 !important;
+            }
+            
+            body[data-print="full"] .popup-chart-container canvas,
+            body[data-print="full"] .popup-chart-container img {
+                max-height: 250px !important; 
+                width: 100% !important;
+                height: auto !important;
+                margin: 16px auto !important;
+                display: block !important;
+            }
+            
+            body[data-print="full"] .chart-container {
+                display: none !important; /* Hide main page charts in full mode */
+            }
+            
+            body[data-print="full"] .popup-title {
+                font-size: 18px !important;
+                margin-bottom: 12px !important;
+                border-bottom: 2px solid #333 !important;
+                padding-bottom: 8px !important;
+                page-break-after: avoid !important;
+                display: block !important;
+                color: #000 !important;
+            }
+            
+            body[data-print="full"] .popup-text {
+                font-size: 12px !important;
+                line-height: 1.4 !important;
+                margin-bottom: 16px !important;
+                page-break-inside: avoid !important;
+                display: block !important;
+                color: #000 !important;
+            }
+            
+            body[data-print="full"] .popup-text h3 {
+                font-size: 14px !important;
+                margin: 12px 0 8px 0 !important;
+                color: #000 !important;
+                font-weight: bold !important;
+            }
+            
+            body[data-print="full"] .popup-text p {
+                margin: 8px 0 !important;
+                color: #000 !important;
+            }
+            
+            body[data-print="full"] .popup-text ul {
+                margin: 12px 0 !important;
+                padding-left: 20px !important;
+                page-break-inside: avoid !important;
+            }
+            
+            body[data-print="full"] .popup-text li {
+                margin-bottom: 4px !important;
+                font-size: 11px !important;
+                line-height: 1.3 !important;
+                color: #000 !important;
+            }
+            
+            /* Hide main cards in full mode to focus on modal content */
+            body[data-print="full"] .card {
+                display: none !important;
+            }
+            
+            /* Keep header info visible */
+            body[data-print="full"] .name-title,
+            body[data-print="full"] .contact-info {
+                display: block !important;
+                page-break-after: avoid !important;
+            }
+            
+            /* Add section headers for clarity */
+            body[data-print="full"] #summary-popup::before {
+                content: "PROFESSIONAL SUMMARY";
+                display: block !important;
+                font-size: 20px !important;
+                font-weight: bold !important;
+                margin: 20px 0 16px 0 !important;
+                border-bottom: 3px solid #333 !important;
+                padding-bottom: 8px !important;
+                color: #000 !important;
+            }
+            
+            body[data-print="full"] #popup-mvl::before {
+                content: "DETAILED EXPERIENCE";
+                display: block !important;
+                font-size: 20px !important;
+                font-weight: bold !important;
+                margin: 20px 0 16px 0 !important;
+                border-bottom: 3px solid #333 !important;
+                padding-bottom: 8px !important;
+                color: #000 !important;
+                page-break-before: always !important;
+            }
+            
+            body[data-print="full"] #popup-skills::before {
+                content: "SKILLS & EXPERTISE";
+                display: block !important;
+                font-size: 20px !important;
+                font-weight: bold !important;
+                margin: 20px 0 16px 0 !important;
+                border-bottom: 3px solid #333 !important;
+                padding-bottom: 8px !important;
+                page-break-before: always !important;
+                color: #000 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -896,6 +1195,7 @@
                             <li>Trained 40 staff on cyber-hygiene</li>
                             <li>Improved efficiency, reduced downtime by 30%</li>
                             <li>Oversaw hiring and training of IT workers</li>
+                            <li>Implemented WhatsApp bot for appointment triage; front-desk call volume dropped 22%</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="purnayoo-chart"></canvas>
@@ -917,6 +1217,7 @@
                             <li>Piloted ITSM ticketing suite boosting uptime by 25%</li>
                             <li>Diagnosed/resolved hardware, software, network issues</li>
                             <li>Planned network security measures</li>
+                            <li>Integrated the new ERP with lab analyzers to auto-sync patient reports (saved 15 min per discharge)</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="nagarjuna-chart"></canvas>
@@ -938,6 +1239,9 @@
                             <li>Implemented Exinda WAN acceleration</li>
                             <li>Configured and maintained networked systems</li>
                             <li>Designed, installed, optimized LAN/WAN networks</li>
+                            <li>Devised solar-UPS "grab-box" that powers PoE AP + switch for 24 h during generator outages</li>
+                            <li>Authored 45-page "Field-IT Playbook" adopted by three regional project managers</li>
+                            <li>Trained 12 local technicians on VSAT alignment and Cisco ASA backup-restore drills</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="ltc-chart"></canvas>
@@ -959,6 +1263,9 @@
                             <li>Cut unexpected outages by 60% with predictive maintenance</li>
                             <li>Enforced TLS/802.1X on all printers for security</li>
                             <li>Blocked rogue USB firmware loads per DoD advisories</li>
+                            <li>Rolled out secure "Follow-Me Print" queues on all classified networks (reduced data-leak risk)</li>
+                            <li>Coordinated parts logistics from Dubai hub → five Afghan bases, slashing printer downtime by 32%</li>
+                            <li>Conducted quarterly firmware audits, meeting DoD STIG compliance ahead of schedule</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="kbr-chart"></canvas>
@@ -980,6 +1287,9 @@
                             <li>Deployed McAfee ePO; malware incidents < 1 per quarter</li>
                             <li>Used Wireshark & Iperf for packet forensics</li>
                             <li>Cut file-transfer time by 35% on MPLS links</li>
+                            <li>Automated Windows Updates via WSUS; patch compliance rose from 68% → 97% in six months</li>
+                            <li>Scripted nightly server-to-NAS backups with verify logs, enabling 100% restore success in drills</li>
+                            <li>Drafted MPLS bandwidth reports that justified 20% link upgrade—cutting file-transfer time by 35%</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="accel-chart"></canvas>
@@ -1142,7 +1452,7 @@
                     <a href="https://www.linkedin.com/in/sajesh-sukumaran-12860493" target="_blank" class="social-link">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="social-link">
+                    <a href="#print" class="social-link">
                         <i class="fas fa-file-pdf"></i>
                     </a>
                 </div>
@@ -1252,6 +1562,7 @@
                     <li>Increased system uptime to over 98% through proactive monitoring</li>
                     <li>Trained 40 medical and administrative staff on cybersecurity hygiene practices</li>
                     <li>Reduced IT-related downtime by 30% through optimized workflows</li>
+                    <li><strong>Implemented WhatsApp bot for appointment triage; front-desk call volume dropped 22%</strong></li>
                 </ul>
             </div>
             <div class="popup-chart-container">
@@ -1273,6 +1584,8 @@
                 <p><strong>Network Hardening:</strong> Segmented VLANs for patient-data vs. guest Wi-Fi, introduced off-line snapshot backup, and configured Sentinel alerts for EMR tables.</p>
                 
                 <p><strong>Staff Enablement:</strong> Wrote SOPs and ran 10 hands-on workshops so clinicians could self-service reports—cut IT tickets by a third.</p>
+                
+                <p><strong>Lab Integration:</strong> Integrated the new ERP with lab analyzers to auto-sync patient reports (saved 15 min per discharge).</p>
             </div>
             <div class="popup-chart-container">
                 <canvas id="nagarjuna-detail-chart"></canvas>
@@ -1288,11 +1601,17 @@
             </div>
             <h2 class="popup-title">Lakeshore Toltest — Field-IT in Conflict Zones</h2>
             <div class="popup-text">
-                <p>Engineered a VSAT + Cisco ASA backbone for USACE construction camps in UAE, Afghanistan, Iraq.</p>
+                <p><strong>Infrastructure Engineering:</strong> Engineered a VSAT + Cisco ASA backbone for USACE construction camps in UAE, Afghanistan, Iraq.</p>
                 
-                <p>Stood-up ruggedised servers that synced CAD files nightly while prioritising real-time radio/VoIP.</p>
+                <p><strong>Data Operations:</strong> Stood-up ruggedised servers that synced CAD files nightly while prioritising real-time radio/VoIP.</p>
                 
-                <p>Documented a "grab-box" kit (pre-configured switch, PoE AP, solar UPS) for 24-h site stand-ups.</p>
+                <p><strong>Innovation & Documentation:</strong></p>
+                <ul>
+                    <li>Devised solar-UPS "grab-box" that powers PoE AP + switch for 24 h during generator outages</li>
+                    <li>Authored 45-page "Field-IT Playbook" adopted by three regional project managers</li>
+                    <li>Trained 12 local technicians on VSAT alignment and Cisco ASA backup-restore drills</li>
+                    <li>Documented standardized "grab-box" kit (pre-configured switch, PoE AP, solar UPS) for 24-h site stand-ups</li>
+                </ul>
             </div>
             <div class="popup-chart-container">
                 <canvas id="ltc-detail-chart"></canvas>
@@ -1312,7 +1631,14 @@
                 
                 <p><strong>Predictive Maintenance:</strong> Analysed meter reads + consumable telemetry; introduced just-in-time toner swaps that cut unexpected outages by 60%.</p>
                 
-                <p><strong>Network Print Security:</strong> Enforced TLS/802.1X on all printers, blocking rogue USB firmware loads noted in DoD advisories.</p>
+                <p><strong>Security & Compliance:</strong></p>
+                <ul>
+                    <li>Enforced TLS/802.1X on all printers, blocking rogue USB firmware loads noted in DoD advisories</li>
+                    <li>Rolled out secure "Follow-Me Print" queues on all classified networks (reduced data-leak risk)</li>
+                    <li>Conducted quarterly firmware audits, meeting DoD STIG compliance ahead of schedule</li>
+                </ul>
+                
+                <p><strong>Logistics Excellence:</strong> Coordinated parts logistics from Dubai hub → five Afghan bases, slashing printer downtime by 32%.</p>
             </div>
             <div class="popup-chart-container">
                 <canvas id="kbr-detail-chart"></canvas>
@@ -1421,8 +1747,8 @@
                 <h3>🧘‍♂️ Daily Practice Regimen</h3>
                 <p><strong>Morning Sadhana (4:30-6:30 AM):</strong></p>
                 <ul>
-                    <li><strong>Shodashi Japa:</strong> 15,00 repetitions daily using rudraksha mala</li>
-                    <li><strong>Dakshina Kali Mantra:</strong> 5,00 repetitions for protection and clarity</li>
+                    <li><strong>Shodashi Japa:</strong> 15,000 repetitions daily using rudraksha mala</li>
+                    <li><strong>Dakshina Kali Mantra:</strong> 5,000 repetitions for protection and clarity</li>
                     <li><strong>Ujjayi Pranayama:</strong> 20-minute sessions for pranic stabilization</li>
                     <li><strong>MahaShodashi Kriya:</strong> Advanced techniques for kundalini awakening along ida/pingala nadis</li>
                 </ul>
@@ -1596,6 +1922,16 @@
         </div>
     </div>
 
+    <!-- Print choice dialog (aria-hidden by default) -->
+    <div id="print-dialog" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[200]" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 200;">
+        <div class="bg-white dark:bg-slate-800 w-[90%] max-w-md rounded-xl p-6 space-y-4" style="background: white; width: 90%; max-width: 400px; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+            <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100" style="font-size: 1.25rem; font-weight: 600; color: #1e293b; margin: 0;">Print Options</h2>
+            <button id="print-compact" class="w-full py-3 rounded-lg bg-sky-500 text-white hover:bg-sky-600" style="width: 100%; padding: 12px 16px; border-radius: 8px; background: #0ea5e9; color: white; border: none; cursor: pointer; font-size: 1rem; transition: background-color 0.2s;">📄 Compact PDF</button>
+            <button id="print-full" class="w-full py-3 rounded-lg bg-orange-500 text-white hover:bg-orange-600" style="width: 100%; padding: 12px 16px; border-radius: 8px; background: #f97316; color: white; border: none; cursor: pointer; font-size: 1rem; transition: background-color 0.2s;">📚 Full PDF</button>
+            <button id="print-cancel" class="w-full mt-2 text-sm text-gray-500 hover:text-gray-700" style="width: 100%; padding: 8px 16px; margin-top: 8px; font-size: 0.875rem; color: #6b7280; background: none; border: none; cursor: pointer; transition: color 0.2s;">Cancel</button>
+        </div>
+    </div>
+
     <script>
         // Theme Switching
         const lightThemeBtn = document.getElementById('light-theme');
@@ -1726,17 +2062,19 @@
                     createModalChart('purnayoo-detail-chart', {
                         type: 'bar',
                         data: {
-                            labels: ['ERP Uptime', 'Clinician Adoption', 'Ticket Drop', 'Wi-Fi Coverage'],
+                            labels: ['ERP Uptime', 'Clinician Adoption', 'Ticket Drop', 'Wi-Fi Coverage', 'Bot Triage'],
                             datasets: [{
                                 label: 'Hospital IT Metrics',
-                                data: [98, 92, 30, 100],
+                                data: [98, 92, 30, 100, 22],
                                 backgroundColor: [
+                                    'rgba(249, 115, 22, 0.7)',
                                     'rgba(249, 115, 22, 0.7)',
                                     'rgba(249, 115, 22, 0.7)',
                                     'rgba(249, 115, 22, 0.7)',
                                     'rgba(249, 115, 22, 0.7)'
                                 ],
                                 borderColor: [
+                                    'rgba(249, 115, 22, 1)',
                                     'rgba(249, 115, 22, 1)',
                                     'rgba(249, 115, 22, 1)',
                                     'rgba(249, 115, 22, 1)',
@@ -1762,10 +2100,10 @@
                     createModalChart('nagarjuna-detail-chart', {
                         type: 'radar',
                         data: {
-                            labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation'],
+                            labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation', 'Lab Integration'],
                             datasets: [{
                                 label: 'ERP & Security Metrics',
-                                data: [90, 33, 98, 100],
+                                data: [90, 33, 98, 100, 85],
                                 backgroundColor: 'rgba(101, 163, 13, 0.2)',
                                 borderColor: 'rgba(101, 163, 13, 1)',
                                 pointBackgroundColor: 'rgba(101, 163, 13, 1)',
@@ -1792,17 +2130,19 @@
                     createModalChart('ltc-detail-chart', {
                         type: 'bar',
                         data: {
-                            labels: ['VSAT Uptime', 'Deployment Speed', 'Data Integrity', 'Kit Re-use'],
+                            labels: ['VSAT Uptime', 'Deploy Speed', 'Data Integrity', 'Kit Re-use', 'Local Tech Upskill'],
                             datasets: [{
                                 label: 'Field Operations',
-                                data: [99, 85, 95, 80],
+                                data: [99, 85, 95, 80, 90],
                                 backgroundColor: [
+                                    'rgba(139, 92, 246, 0.7)',
                                     'rgba(139, 92, 246, 0.7)',
                                     'rgba(139, 92, 246, 0.7)',
                                     'rgba(139, 92, 246, 0.7)',
                                     'rgba(139, 92, 246, 0.7)'
                                 ],
                                 borderColor: [
+                                    'rgba(139, 92, 246, 1)',
                                     'rgba(139, 92, 246, 1)',
                                     'rgba(139, 92, 246, 1)',
                                     'rgba(139, 92, 246, 1)',
@@ -1828,7 +2168,7 @@
                     createModalChart('kbr-detail-chart', {
                         type: 'radar',
                         data: {
-                            labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Security Compliance'],
+                            labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Compliance Score'],
                             datasets: [{
                                 label: 'Xerox Fleet Operations',
                                 data: [98, 92, 60, 95],
@@ -1858,10 +2198,10 @@
                     createModalChart('accel-detail-chart', {
                         type: 'bar',
                         data: {
-                            labels: ['Malware Drop', 'Server Uptime', 'Link Latency Cut', 'Zero Downtime'],
+                            labels: ['Patch Compliance', 'Server Uptime', 'Malware Drop', 'Transfer Speed Gain'],
                             datasets: [{
                                 label: 'DHL Network Operations',
-                                data: [90, 99, 35, 100],
+                                data: [97, 99, 90, 35],
                                 backgroundColor: [
                                     'rgba(168, 85, 247, 0.7)',
                                     'rgba(168, 85, 247, 0.7)',
@@ -2154,6 +2494,226 @@
             }
         });
 
+        // Print Dialog Functionality
+        /* open dialog */
+        const printLink = document.querySelector('.social-link[href="#print"]');
+        if (printLink) {
+            printLink.addEventListener('click', e => {
+                e.preventDefault(); 
+                const dialog = document.getElementById('print-dialog');
+                dialog.style.display = 'flex';
+                // Focus the first button for accessibility
+                setTimeout(() => {
+                    document.getElementById('print-compact').focus();
+                }, 100);
+            });
+        }
+
+        /* helpers */
+        function preparePrint(mode) {
+            console.log(`Preparing print in ${mode} mode`);
+            document.body.setAttribute('data-print', mode); // 'compact' | 'full'
+            const dialog = document.getElementById('print-dialog');
+            dialog.style.display = 'none';
+            
+            if (mode === 'full') {
+                // Force show all relevant modals and their content
+                const relevantModals = [
+                    'summary-popup', 'popup-mvl', 'popup-purnayoo', 
+                    'popup-nagarjuna', 'popup-ltc', 'popup-kbr', 
+                    'popup-accel', 'popup-skills'
+                ];
+                
+                console.log('Processing modals for print:', relevantModals);
+                
+                relevantModals.forEach(modalId => {
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        console.log(`Showing modal: ${modalId}`);
+                        // Force the modal to be visible
+                        modal.style.display = 'block';
+                        modal.style.position = 'static';
+                        modal.style.background = 'transparent';
+                        modal.style.opacity = '1';
+                        modal.style.visibility = 'visible';
+                        modal.style.zIndex = 'auto';
+                        modal.style.transform = 'none';
+                        modal.classList.add('print-visible');
+                        
+                        // Ensure content is visible
+                        const content = modal.querySelector('.popup-content');
+                        if (content) {
+                            content.style.display = 'block';
+                            content.style.position = 'static';
+                            content.style.transform = 'none';
+                            content.style.opacity = '1';
+                            content.style.visibility = 'visible';
+                            content.style.maxWidth = '100%';
+                            content.style.background = 'transparent';
+                        }
+                        
+                        // Show popup text
+                        const popupText = modal.querySelector('.popup-text');
+                        if (popupText) {
+                            popupText.style.display = 'block';
+                            popupText.style.visibility = 'visible';
+                        }
+                    } else {
+                        console.warn(`Modal not found: ${modalId}`);
+                    }
+                });
+                
+                // Convert charts to images before printing
+                setTimeout(() => {
+                    console.log('Converting charts...');
+                    rasterizeCharts();
+                    setTimeout(() => {
+                        console.log('Opening print dialog...');
+                        window.print();
+                    }, 300);
+                }, 200);
+            } else {
+                // Compact mode - just print main content
+                console.log('Printing in compact mode');
+                setTimeout(() => {
+                    window.print();
+                }, 100);
+            }
+        }
+
+        /* click handlers */
+        document.getElementById('print-compact').onclick = () => preparePrint('compact');
+        document.getElementById('print-full').onclick = () => preparePrint('full');
+        document.getElementById('print-cancel').onclick = () => {
+            document.getElementById('print-dialog').style.display = 'none';
+        };
+
+        /* Close dialog on ESC key */
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const dialog = document.getElementById('print-dialog');
+                if (dialog.style.display === 'flex') {
+                    dialog.style.display = 'none';
+                }
+            }
+        });
+
+        /* Close dialog when clicking outside */
+        document.getElementById('print-dialog').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
+        /* after print restore */
+        window.onafterprint = () => {
+            document.body.removeAttribute('data-print');
+            
+            // Clean up any print-specific modal modifications
+            const printVisibleModals = document.querySelectorAll('.print-visible');
+            printVisibleModals.forEach(modal => {
+                modal.classList.remove('print-visible');
+                modal.style.display = '';
+                modal.style.position = '';
+                modal.style.background = '';
+                modal.style.opacity = '';
+                modal.style.visibility = '';
+                modal.style.zIndex = '';
+                modal.style.transform = '';
+                
+                const content = modal.querySelector('.popup-content');
+                if (content) {
+                    content.style.display = '';
+                    content.style.position = '';
+                    content.style.transform = '';
+                    content.style.opacity = '';
+                    content.style.visibility = '';
+                    content.style.maxWidth = '';
+                    content.style.background = '';
+                }
+                
+                const popupText = modal.querySelector('.popup-text');
+                if (popupText) {
+                    popupText.style.display = '';
+                    popupText.style.visibility = '';
+                }
+            });
+            
+            // Reload the page to restore charts if they were converted to images
+            if (document.body.hasAttribute('data-charts-converted')) {
+                document.body.removeAttribute('data-charts-converted');
+                window.location.reload();
+            }
+        };
+
+        /* Canvas → image helper (so charts print) */
+        function rasterizeCharts() {
+            if (document.body.getAttribute('data-print') !== 'full') return;
+            
+            // Target charts in both main cards and modals
+            const relevantSelectors = [
+                '#summary-popup canvas',
+                '#popup-mvl canvas',
+                '#popup-purnayoo canvas', 
+                '#popup-nagarjuna canvas',
+                '#popup-ltc canvas',
+                '#popup-kbr canvas',
+                '#popup-accel canvas',
+                '#popup-skills canvas',
+                '.popup-chart-container canvas', // Modal charts
+                '.chart-container canvas' // Main experience cards
+            ];
+            
+            let chartsConverted = 0;
+            
+            relevantSelectors.forEach(selector => {
+                document.querySelectorAll(selector).forEach(canvas => {
+                    try {
+                        // Only convert if not already converted
+                        if (canvas.dataset.converted === 'true') return;
+                        
+                        const img = new Image();
+                        img.src = canvas.toDataURL('image/png');
+                        img.style.maxWidth = '100%';
+                        img.style.height = 'auto';
+                        img.style.width = canvas.width + 'px';
+                        img.style.height = canvas.height + 'px';
+                        img.style.display = 'block';
+                        img.style.margin = '12px auto';
+                        img.className = canvas.className;
+                        img.dataset.originalCanvas = 'true';
+                        
+                        if (canvas.parentNode) {
+                            canvas.parentNode.replaceChild(img, canvas);
+                            chartsConverted++;
+                            document.body.setAttribute('data-charts-converted', 'true');
+                        }
+                    } catch (e) {
+                        console.warn('Could not convert chart to image:', e);
+                    }
+                });
+            });
+            
+            console.log(`Converted ${chartsConverted} charts for printing`);
+        }
+
+        /* Print media query listener */
+        const printMediaQuery = window.matchMedia('print');
+        if (printMediaQuery.addListener) {
+            printMediaQuery.addListener(mq => {
+                if (mq.matches && document.body.getAttribute('data-print') === 'full') {
+                    rasterizeCharts();
+                }
+            });
+        } else {
+            // Fallback for older browsers
+            printMediaQuery.addEventListener('change', mq => {
+                if (mq.matches && document.body.getAttribute('data-print') === 'full') {
+                    rasterizeCharts();
+                }
+            });
+        }
+
         // Initialize with light theme
         lightThemeBtn.classList.add('active');
 
@@ -2197,10 +2757,11 @@
             new Chart(document.getElementById('purnayoo-chart'), {
                 type: 'doughnut',
                 data: {
-                    labels: ['Uptime', 'Downtime Reduction', 'Staff Trained', 'Efficiency Gain'],
+                    labels: ['Uptime', 'Downtime ↓', 'Staff Trained', 'Efficiency ↑', 'Bot Triage'],
                     datasets: [{
-                        data: [98, 30, 100, 30],
+                        data: [98, 30, 100, 30, 22],
                         backgroundColor: [
+                            'rgba(249, 115, 22, 0.7)',
                             'rgba(249, 115, 22, 0.7)',
                             'rgba(249, 115, 22, 0.7)',
                             'rgba(249, 115, 22, 0.7)',
@@ -2210,10 +2771,15 @@
                             'rgba(249, 115, 22, 1)',
                             'rgba(249, 115, 22, 1)',
                             'rgba(249, 115, 22, 1)',
+                            'rgba(249, 115, 22, 1)',
                             'rgba(249, 115, 22, 1)'
                         ],
                         borderWidth: 1
                     }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
                 }
             });
 
@@ -2252,17 +2818,19 @@
             new Chart(document.getElementById('nagarjuna-chart'), {
                 type: 'bar',
                 data: {
-                    labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation'],
+                    labels: ['ERP Adoption', 'Ticket Reduction', 'Uptime', 'VLAN Isolation', 'Lab Integration'],
                     datasets: [{
                         label: 'Performance Metrics',
-                        data: [90, 33, 98, 100],
+                        data: [90, 33, 98, 100, 85],
                         backgroundColor: [
+                            'rgba(101, 163, 13, 0.7)',
                             'rgba(101, 163, 13, 0.7)',
                             'rgba(101, 163, 13, 0.7)',
                             'rgba(101, 163, 13, 0.7)',
                             'rgba(101, 163, 13, 0.7)'
                         ],
                         borderColor: [
+                            'rgba(101, 163, 13, 1)',
                             'rgba(101, 163, 13, 1)',
                             'rgba(101, 163, 13, 1)',
                             'rgba(101, 163, 13, 1)',
@@ -2287,10 +2855,10 @@
             new Chart(document.getElementById('ltc-chart'), {
                 type: 'radar',
                 data: {
-                    labels: ['VSAT Uptime', 'Deployment Speed', 'Data Integrity', 'Kit Re-use'],
+                    labels: ['VSAT Uptime', 'Deploy Speed', 'Data Integrity', 'Kit Re-use', 'Local Tech Upskill'],
                     datasets: [{
                         label: 'Field Operations',
-                        data: [99, 85, 95, 80],
+                        data: [99, 85, 95, 80, 90],
                         backgroundColor: 'rgba(139, 92, 246, 0.2)',
                         borderColor: 'rgba(139, 92, 246, 1)',
                         pointBackgroundColor: 'rgba(139, 92, 246, 1)',
@@ -2309,6 +2877,69 @@
                             },
                             suggestedMin: 0,
                             suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // KBR Chart
+            new Chart(document.getElementById('kbr-chart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Fleet Uptime', 'Call Response', 'Outage Reduction', 'Compliance Score'],
+                    datasets: [{
+                        data: [98, 92, 60, 95],
+                        backgroundColor: [
+                            'rgba(14, 165, 233, 0.7)',
+                            'rgba(56, 189, 248, 0.7)',
+                            'rgba(251, 146, 60, 0.7)',
+                            'rgba(74, 222, 128, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(14, 165, 233, 1)',
+                            'rgba(56, 189, 248, 1)',
+                            'rgba(251, 146, 60, 1)',
+                            'rgba(74, 222, 128, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Accel Chart
+            new Chart(document.getElementById('accel-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Patch Compliance', 'Server Uptime', 'Malware Drop', 'Transfer Speed Gain'],
+                    datasets: [{
+                        label: '% or Gain',
+                        data: [97, 99, 90, 35],
+                        backgroundColor: [
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(249, 115, 22, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(249, 115, 22, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
                         }
                     }
                 }
