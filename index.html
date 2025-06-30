@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sajesh Sukumaran - Interactive Resume</title>
+    <title>Sajesh Sukumaran - IT Engineer | Infrastructure & Cloud Security Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -238,6 +238,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 30px;
+            align-items: start;
         }
 
         .card {
@@ -248,6 +249,8 @@
             transition: var(--transition);
             border: 1px solid var(--light-gray);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -273,10 +276,14 @@
 
         .card-body {
             padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-body ul {
             list-style-type: none;
+            flex-grow: 1;
         }
 
         .card-body li {
@@ -303,10 +310,187 @@
             position: relative;
         }
 
+        /* Education card specific styles */
+        .certs-edu .card:last-child .card-body {
+            padding-bottom: 15px;
+            justify-content: center;
+        }
+
+        .certs-edu .card:last-child .card-body ul {
+            margin-bottom: 0;
+        }
+
+        .certs-edu .card:last-child .card-body li {
+            padding: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Make chart container smaller in certs-edu section */
+        .certs-edu .chart-container {
+            height: 150px;
+            margin: 15px 0 10px;
+        }
+
+        /* Ensure both cards in certs-edu have equal height */
+        .certs-edu .cards-grid {
+            align-items: stretch;
+            gap: 20px;
+        }
+
+        .certs-edu .card {
+            min-height: 400px;
+        }
+
+        /* Reduce section padding for certs-edu */
+        .certs-edu .container {
+            padding: 40px 20px;
+        }
+
+        .certs-edu {
+            padding: 40px 0;
+        }
+
+        /* New Certifications & Education Section Styling */
+        .certs-edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .cert-edu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--card-shadow);
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-edu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--card-shadow);
+        }
+
+        .cert-edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--sky-blue));
+        }
+
+        .cert-edu-card .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--orange), var(--sky-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .cert-edu-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .cert-list, .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cert-item, .edu-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(52, 152, 219, 0.1);
+            transition: var(--transition);
+        }
+
+        .cert-item:hover, .edu-item:hover {
+            background: rgba(52, 152, 219, 0.05);
+            border-color: var(--sky-blue);
+            transform: translateX(5px);
+        }
+
+        .cert-badge, .edu-level {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--sky-blue), var(--orange));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .cert-details h4, .edu-details h4 {
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .cert-details p, .edu-details p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .edu-type {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .certs-edu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cert-edu-card {
+                padding: 20px;
+            }
+            
+            .cert-item, .edu-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .cert-badge, .edu-level {
+                align-self: flex-start;
+            }
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
@@ -378,7 +562,7 @@
         /* Interests Section */
         .interests-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
@@ -755,7 +939,12 @@
             }
 
             .interests-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
 
@@ -1121,11 +1310,11 @@
             <div class="header-content">
                 <div class="name-title">
                     <h1>Sajesh Sukumaran</h1>
-                    <h2>IT Engineer · Global Admin · Cyber-Compliance Specialist · Spiritual Explorer</h2>
+                    <h2>IT Engineer | Infrastructure & Cloud Security Specialist</h2>
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Dubai, United Arab Emirates</span>
+                            <span>Jumeirah Lake Towers, Dubai, UAE</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -1133,7 +1322,13 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+971-9400-712-681</span>
+                            <span>+971 50 391 7080</span>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.linkedin.com/in/sajesh-sukumaran-12860493" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn Profile</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1147,7 +1342,7 @@
             <div class="summary-content">
                 <h2 class="section-title">Professional Summary</h2>
                 <p>
-                    18-year track record architecting, securing, and scaling enterprise IT across five countries, now spearheading Microsoft 365 GCC G5 operations for MVL Group. Proven in zero-trust roll-outs, FedRAMP/CMMC alignment, and 24×7 global support. Energised by meditation, Himalayan travel, and AI-backed palmistry — the same curiosity that drives breakthrough solutions at work.
+                    A results-driven and security-focused IT professional with over 18 years of experience designing, securing, and managing enterprise infrastructure across corporate and high-stakes operational environments. Proven expertise in migrating legacy systems to secure cloud platforms and hardening infrastructure to meet stringent compliance standards, including NIST and CMMC. Adept at implementing Zero-Trust architectures and ensuring resilient IT operations in demanding, mission-critical settings, from global military support to modern corporate enterprises.
                 </p>
                 <button class="btn btn-orange" id="summary-btn">Learn More About My Philosophy</button>
             </div>
@@ -1162,18 +1357,17 @@
                 <!-- MVL Group -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>MVL Group</h3>
-                        <div class="date">May 2023 - Present</div>
+                        <h3>MVL Group | Dubai, UAE</h3>
+                        <div class="date">IT Engineer & Cloud Security Specialist | May 2023 - Present</div>
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Migrated 300-user fleet to Microsoft 365 GCC G5</li>
-                            <li>Designed Sentinel-driven SOC; MTTR cut from 2h → 20min</li>
-                            <li>Rolled out Entra DLP & Purview labels protecting CUI</li>
-                            <li>Launched Zero-Trust access with Zscaler ZPA</li>
-                            <li>Admin for <b>Procore (FedRAMP Cloud)</b>—configured SSO, role matrices, and daily backup exports. <span class="interactive-icon" data-popup-id="popup_procore">📖</span></li>
-                            <li>Rolled out <b>Acronis Backup Cloud</b> to 280 endpoints; achieved 14-day RPO and immutable storage.</li>
-                            <li>Mentored 2-person IT crew; ticket CSAT ≥ 97%</li>
+                            <li>Spearheaded complete migration from Google Workspace to Microsoft 365 GCC G5 for CMMC compliance and NIST 800-171 R3 alignment</li>
+                            <li>Architected and managed entire on-premise network using Ubiquiti UniFi stack (switches, security cameras, access points)</li>
+                            <li>Implemented Zero-Trust security model using Zscaler (ZIA/ZPA) for global user base</li>
+                            <li>Integrated key business applications (Procore, BeyondTrust) into Entra ID framework using SAML for centralized identity management</li>
+                            <li>Hardened Microsoft 365 data protection using Acronis Cyber Protect with immutable backups for CMMC requirements</li>
+                            <li>Ensured all systems meet rigorous FedRAMP, NIST, and CMMC standards as prime contractor for US DoD</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="mvl-chart"></canvas>
@@ -1185,17 +1379,17 @@
                 <!-- Purnayoo Arogya Nikethanam -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>Purnayoo Arogya Nikethanam</h3>
-                        <div class="date">Sept 2019 - Mar 2023</div>
+                        <h3>Purnayoo Arogya Nikethanam | Kerala, India</h3>
+                        <div class="date">IT Manager | Sep 2019 - Mar 2023</div>
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Managed 120-bed Ayurvedic hospital's tech stack</li>
-                            <li>Guided ERP sprints, raised uptime to >98%</li>
-                            <li>Trained 40 staff on cyber-hygiene</li>
-                            <li>Improved efficiency, reduced downtime by 30%</li>
-                            <li>Oversaw hiring and training of IT workers</li>
-                            <li>Implemented WhatsApp bot for appointment triage; front-desk call volume dropped 22%</li>
+                            <li>Led comprehensive modernization of core IT infrastructure with VLAN segmentation and next-generation firewall</li>
+                            <li>Reduced system downtime and improved operational efficiency through strategic infrastructure upgrades</li>
+                            <li>Implemented N-Computing thin-client environment, cutting hardware expenditure and simplifying endpoint management</li>
+                            <li>Enhanced security and stability through network re-architecture</li>
+                            <li>Managed complete technology stack for 120-bed Ayurvedic hospital and yoga center</li>
+                            <li>Provided comprehensive staff training and support</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="purnayoo-chart"></canvas>
@@ -1207,17 +1401,17 @@
                 <!-- Nagarjuna Ayurveda -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>Nagarjuna Ayurveda</h3>
-                        <div class="date">Jun 2014 - Sept 2019</div>
+                        <h3>Nagarjuna Ayurveda | Kerala, India</h3>
+                        <div class="date">Systems Administrator | Jun 2014 - Sep 2019</div>
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Upgraded AD forests, implemented folder-level ACLs</li>
-                            <li>Cut ransomware exposure by 75%</li>
-                            <li>Piloted ITSM ticketing suite boosting uptime by 25%</li>
-                            <li>Diagnosed/resolved hardware, software, network issues</li>
-                            <li>Planned network security measures</li>
-                            <li>Integrated the new ERP with lab analyzers to auto-sync patient reports (saved 15 min per discharge)</li>
+                            <li>Led successful migration from manual processing to centralized ERP system, transforming company-wide operations</li>
+                            <li>Managed all end-user support, network administration, and server maintenance for the organization</li>
+                            <li>Integrated IoT devices from manufacturing units directly into ERP system for real-time production monitoring</li>
+                            <li>Implemented comprehensive system administration and network security measures</li>
+                            <li>Provided technical support and training for all staff members</li>
+                            <li>Streamlined business processes through technology integration</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="nagarjuna-chart"></canvas>
@@ -1226,22 +1420,20 @@
                     </div>
                 </div>
 
-                <!-- LTC / Lakeshore Toltest -->
+                <!-- Lakeshore Toltest Corp -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>LTC / Lakeshore Toltest</h3>
-                        <div class="date">Mar 2010 - May 2014</div>
+                        <h3>Lakeshore Toltest Corp | UAE, Afghanistan, & Iraq</h3>
+                        <div class="date">IT Manager, International Operations | Mar 2010 - May 2014</div>
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Led field IT across UAE, Afghanistan, Iraq</li>
-                            <li>Oversaw VSAT uplinks, Cisco ASA VPNs</li>
-                            <li>Implemented Exinda WAN acceleration</li>
-                            <li>Configured and maintained networked systems</li>
-                            <li>Designed, installed, optimized LAN/WAN networks</li>
-                            <li>Devised solar-UPS "grab-box" that powers PoE AP + switch for 24 h during generator outages</li>
-                            <li>Authored 45-page "Field-IT Playbook" adopted by three regional project managers</li>
-                            <li>Trained 12 local technicians on VSAT alignment and Cisco ASA backup-restore drills</li>
+                            <li>Served as sole IT lead for prime US DoD contractor, managing entire technology landscape across high-risk operational zones</li>
+                            <li>Administered Active Directory, Exchange, and network infrastructure through JIRA ITSM system</li>
+                            <li>Managed mission-critical connectivity including VSAT and fiber optic networks</li>
+                            <li>Secured perimeter with Cisco ASA firewalls and optimized traffic with Exinda appliances</li>
+                            <li>Deployed and configured military RMS ERP system</li>
+                            <li>Provided comprehensive hardware/software support for all endpoint and engineering applications</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="ltc-chart"></canvas>
@@ -1250,22 +1442,20 @@
                     </div>
                 </div>
 
-                <!-- KBR (NATO Contract) -->
+                <!-- KBR, Inc. -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>KBR (NATO Contract)</h3>
-                        <div class="date">Feb 2008 - Jan 2010</div>
+                        <h3>KBR, Inc. | Afghanistan</h3>
+                        <div class="date">Xerox Service Support Professional (Civilian Contractor) | Feb 2007 - Jan 2010</div>
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Maintained 120+ Xerox WorkCentre devices across NATO bases</li>
-                            <li>Averaged ≤2h response to service calls</li>
-                            <li>Cut unexpected outages by 60% with predictive maintenance</li>
-                            <li>Enforced TLS/802.1X on all printers for security</li>
-                            <li>Blocked rogue USB firmware loads per DoD advisories</li>
-                            <li>Rolled out secure "Follow-Me Print" queues on all classified networks (reduced data-leak risk)</li>
-                            <li>Coordinated parts logistics from Dubai hub → five Afghan bases, slashing printer downtime by 32%</li>
-                            <li>Conducted quarterly firmware audits, meeting DoD STIG compliance ahead of schedule</li>
+                            <li>Embedded with British and NATO forces across Afghanistan to service mission-critical Xerox printing and documentation equipment</li>
+                            <li>Traveled extensively via military transport (C-130, Chinook, armed convoys) into active operational zones</li>
+                            <li>Ensured 100% uptime for vital systems under extreme conditions</li>
+                            <li>Maintained 120+ Xerox WorkCentre devices across multiple NATO bases</li>
+                            <li>Provided rapid response technical support in challenging environments</li>
+                            <li>Collaborated with international military personnel to maintain critical infrastructure</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="kbr-chart"></canvas>
@@ -1274,22 +1464,20 @@
                     </div>
                 </div>
 
-                <!-- Accel Frontline -->
+                <!-- ACCEL Frontline -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>Accel Frontline (DHL Contract)</h3>
-                        <div class="date">Aug 2006 - Jan 2008</div>
+                        <h3>ACCEL Frontline (on behalf of DHL India) | Delhi, India</h3>
+                        <div class="date">Resident Engineer | Aug 2006 - Jan 2007</div>
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Supported 400+ DHL workstations and 25 branch servers</li>
-                            <li>Zero unscheduled downtime in peak season '07</li>
-                            <li>Deployed McAfee ePO; malware incidents < 1 per quarter</li>
-                            <li>Used Wireshark & Iperf for packet forensics</li>
-                            <li>Cut file-transfer time by 35% on MPLS links</li>
-                            <li>Automated Windows Updates via WSUS; patch compliance rose from 68% → 97% in six months</li>
-                            <li>Scripted nightly server-to-NAS backups with verify logs, enabling 100% restore success in drills</li>
-                            <li>Drafted MPLS bandwidth reports that justified 20% link upgrade—cutting file-transfer time by 35%</li>
+                            <li>Provided comprehensive field service and resident engineering support for DHL India's large-scale logistics operations</li>
+                            <li>Managed LAN/WAN systems, McAfee Antivirus Server, and resolved network issues across multiple sites</li>
+                            <li>Administered Windows servers and configured Lotus Notes for end-users</li>
+                            <li>Supported 400+ DHL workstations and 25 branch servers with zero unscheduled downtime in peak season</li>
+                            <li>Implemented network optimization solutions and security protocols</li>
+                            <li>Provided technical training and support to local staff</li>
                         </ul>
                         <div class="chart-container">
                             <canvas id="accel-chart"></canvas>
@@ -1307,48 +1495,79 @@
             <h2 class="section-title">Skills Matrix</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Cloud & Security</h3>
+                    <h3>Cloud & Identity Security</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Microsoft 365 GCC G5 (tenant-level admin)</span>
-                        <span class="skill-tag">Windows Server 2003 → 2025 <span class="interactive-icon" data-popup-id="popup_windows" style="cursor: pointer;">📖</span></span>
-                        <span class="skill-tag">Hyper-V virtualization <span class="interactive-icon" data-popup-id="popup_hyperv" style="cursor: pointer;">📖</span></span>
-                        <span class="skill-tag">Sentinel · Defender XDR · Purview DLP</span>
-                        <span class="skill-tag">Zscaler ZPA & ZIA <span class="interactive-icon" data-popup-id="popup_zscaler" style="cursor: pointer;">📖</span></span>
-                        <span class="skill-tag">Acronis Backup Cloud <span class="interactive-icon" data-popup-id="popup_acronis" style="cursor: pointer;">📖</span></span>
-                        <span class="skill-tag">BeyondTrust Remote Support</span>
+                        <span class="skill-tag">Microsoft Azure (Solutions Architect Expert)</span>
+                        <span class="skill-tag">Microsoft 365 GCC G5</span>
+                        <span class="skill-tag">Entra ID</span>
+                        <span class="skill-tag">Conditional Access Policies</span>
+                        <span class="skill-tag">MFA</span>
+                        <span class="skill-tag">Azure Backup & Azure Files</span>
+                        <span class="skill-tag">Zscaler Private Access (ZPA) & Internet Access (ZIA)</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Networking & Systems</h3>
+                    <h3>Security Operations & Compliance</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">Microsoft Defender XDR</span>
+                        <span class="skill-tag">Microsoft Sentinel (SIEM)</span>
+                        <span class="skill-tag">NIST SP 800-171</span>
+                        <span class="skill-tag">CMMC Level 2 Compliance</span>
+                        <span class="skill-tag">Zero Trust Architecture</span>
+                        <span class="skill-tag">FedRAMP Standards</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Systems & Server Administration</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Microsoft Exchange</span>
+                        <span class="skill-tag">Windows Server & Desktop OS (7/10/11)</span>
+                        <span class="skill-tag">VMware</span>
+                        <span class="skill-tag">Hyper-V</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Network Engineering & Firewall Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Ubiquiti UniFi Ecosystem (Controller, Switches, Cameras, APs)</span>
+                        <span class="skill-tag">FortiGate (60F/100F)</span>
                         <span class="skill-tag">Cisco ASA</span>
+                        <span class="skill-tag">Cisco Switching & Wireless</span>
                         <span class="skill-tag">VSAT</span>
-                        <span class="skill-tag">Exinda</span>
-                        <span class="skill-tag">DHCP/DNS/AD</span>
-                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Point-to-Point Links</span>
+                        <span class="skill-tag">Exinda Network Optimization</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Automation & Development</h3>
+                    <h3>Data Protection & IT Service Management</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">PowerShell</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Vite + React</span>
+                        <span class="skill-tag">Acronis Cyber Protect</span>
+                        <span class="skill-tag">Immutable Storage</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">BeyondTrust (Bomgar)</span>
+                        <span class="skill-tag">Procore</span>
+                        <span class="skill-tag">RMS (Military ERP)</span>
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">Adobe Suite</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Leadership & Soft Skills</h3>
+                    <h3>Development & Automation</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Cross-cultural Coaching</span>
-                        <span class="skill-tag">Vendor Negotiation</span>
-                        <span class="skill-tag">Crisis Communication</span>
-                        <span class="skill-tag">Team Mentoring</span>
-                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">AI Prompting Expertise (Gemini, ChatGPT, LLAMA, Claude Sonnet)</span>
+                        <span class="skill-tag">GitHub Development with Copilot</span>
+                        <span class="skill-tag">TypeScript (Basic + AI-Assisted)</span>
+                        <span class="skill-tag">PHP (Basic + AI-Assisted)</span>
+                        <span class="skill-tag">HTML/CSS (Basic + AI-Assisted)</span>
+                        <span class="skill-tag">No-Code App Development</span>
+                        <span class="skill-tag">AI-Powered Page Creation</span>
+                        <span class="skill-tag">Prompt Engineering for Development</span>
                     </div>
                 </div>
             </div>
@@ -1356,7 +1575,7 @@
                 <canvas id="skills-chart" style="max-width: 100%; max-height: 100%;"></canvas>
             </div>
             <div style="text-align: center; margin-top: 30px;">
-                <button class="btn btn-orange popup-btn" data-popup="popup-skills">Learn About My Learning Approach</button>
+                <button class="btn btn-orange popup-btn" data-popup="popup-skills">Learn About My Professional Development Approach</button>
             </div>
         </div>
     </section>
@@ -1395,6 +1614,12 @@
                     <h3>Maker / Tinkerer</h3>
                     <p>Code ↔ Welding ↔ Engines</p>
                 </div>
+                
+                <div class="interest-card popup-btn" data-popup="popup-photography">
+                    <i class="fas fa-camera"></i>
+                    <h3>Photography & Visual Arts</h3>
+                    <p>Digital storytelling</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1402,38 +1627,101 @@
     <!-- Certifications & Education -->
     <section class="certs-edu">
         <div class="container">
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Certifications</h3>
+            <div class="section-header">
+                <h2>Certifications & Education</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="certs-edu-grid">
+                <div class="cert-edu-card">
+                    <div class="card-icon">
+                        <i class="fas fa-certificate"></i>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Microsoft Certified: Azure Solutions Architect Expert (2024)</li>
-                            <li>Microsoft 365 Administrator Expert (2024)</li>
-                            <li>MCSE: Windows Server 2003</li>
-                            <li>MCSA: Messaging on Windows Server 2003</li>
-                            <li>Xerox WC-7132/7242 Service Engineer</li>
-                        </ul>
-                        <div class="chart-container">
-                            <canvas id="certs-chart"></canvas>
+                    <h3>Professional Certifications</h3>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <div class="cert-badge">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <div class="cert-details">
+                                <h4>Azure Solutions Architect Expert</h4>
+                                <p>Microsoft Certified</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-badge">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <div class="cert-details">
+                                <h4>Azure Administrator Associate</h4>
+                                <p>Microsoft Certified</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-badge">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="cert-details">
+                                <h4>Procore Certified Administrator</h4>
+                                <p>Construction Technology Platform</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-badge">
+                                <i class="fas fa-print"></i>
+                            </div>
+                            <div class="cert-details">
+                                <h4>Xerox Service Support Professional</h4>
+                                <p>Certified Technical Specialist</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-badge">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <div class="cert-details">
+                                <h4>Systems Engineer / Administrator</h4>
+                                <p>Microsoft Certified (MCSA/MCSE)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Education</h3>
+                <div class="cert-edu-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Diploma in Computer Hardware Maintenance Engineering</li>
-                            <li>Govt. Polytechnic College, Meppadi, Kerala (2006)</li>
-                            <li>Higher Secondary Education Certificate in Science</li>
-                            <li>Aralam Gov. Higher Secondary School (2002)</li>
-                            <li>High School Diploma</li>
-                            <li>St Thomas High School (2000)</li>
-                        </ul>
+                    <h3>Educational Background</h3>
+                    <div class="edu-list">
+                        <div class="edu-item">
+                            <div class="edu-level">
+                                <i class="fas fa-diploma"></i>
+                            </div>
+                            <div class="edu-details">
+                                <h4>Diploma in Computer Hardware Maintenance Engineering</h4>
+                                <p>Government Polytechnic College, Meppadi, Kerala</p>
+                                <span class="edu-type">Technical Diploma</span>
+                            </div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-level">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="edu-details">
+                                <h4>Higher Secondary Education Certificate in Science</h4>
+                                <p>Aralam Government Higher Secondary School</p>
+                                <span class="edu-type">12th Grade - Science Stream</span>
+                            </div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-level">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="edu-details">
+                                <h4>Secondary School Leaving Certificate (SSLC)</h4>
+                                <p>St Thomas High School, Kilianthara, Iritty</p>
+                                <span class="edu-type">10th Grade</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1466,16 +1754,16 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">My Tech-Meets-Tantra Philosophy</h2>
+            <h2 class="popup-title">Professional Philosophy & Approach</h2>
             <div class="popup-text">
-                <h3>🧘‍♂️ The Holistic Engineer Approach</h3>
-                <p>I believe stable systems and calm minds follow identical rules: minimal friction, precise feedback loops, and continuous alignment with a larger purpose. Whether I'm tuning Sentinel analytics or guiding a student through breath-paced Shodashi mantra, the end-goal is resilience with grace.</p>
+                <h3>🎯 Mission-Critical Focus</h3>
+                <p>My approach to IT infrastructure is built on the principle that every system must be designed for resilience, security, and operational excellence. Having worked in high-stakes environments from military operations to healthcare systems, I understand that technology failures can have serious real-world consequences.</p>
                 
-                <h3>🔄 Cross-Domain Learning</h3>
-                <p>This holistic approach has enabled me to bridge seemingly disparate worlds - from configuring secure cloud environments to understanding the subtle energies of the human system. The discipline required for both realms is remarkably similar.</p>
+                <h3>  Security-First Mindset</h3>
+                <p>In today's threat landscape, security cannot be an afterthought. I implement Zero-Trust architectures, ensure compliance with the most stringent standards (NIST, CMMC, FedRAMP), and build systems that are secure by design rather than secured by addition.</p>
                 
                 <h3>⚖️ Balanced Operations</h3>
-                <p>In my daily practice, I integrate Ayurvedic principles with IT operations management, creating environments that are both technically robust and energetically balanced. This unique perspective allows me to design systems that are secure, efficient, and sustainable.</p>
+                <p>Effective IT operations require balancing security, performance, and usability. I design solutions that protect critical assets while enabling productivity, ensuring that security measures enhance rather than hinder business operations.</p>
                 
                 <div class="popup-chart-container">
                     <canvas id="philosophy-chart"></canvas>
@@ -1483,10 +1771,10 @@
 
                 <h3>🎯 Core Principles</h3>
                 <ul>
-                    <li><strong>Mindful Automation:</strong> Build systems that reduce human error while preserving human creativity</li>
-                    <li><strong>Sustainable Security:</strong> Implement protection that enhances rather than hinders productivity</li>
-                    <li><strong>Holistic Monitoring:</strong> Watch not just metrics, but the health of the entire ecosystem</li>
-                    <li><strong>Continuous Learning:</strong> Stay curious about both ancient wisdom and cutting-edge technology</li>
+                    <li><strong>Proactive Monitoring:</strong> Identify and resolve issues before they impact operations</li>
+                    <li><strong>Continuous Improvement:</strong> Regularly assess and enhance systems for optimal performance</li>
+                    <li><strong>Knowledge Transfer:</strong> Ensure team members are equipped to maintain and improve systems</li>
+                    <li><strong>Strategic Thinking:</strong> Align technology solutions with business objectives and compliance requirements</li>
                 </ul>
             </div>
         </div>
@@ -1498,46 +1786,63 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">MVL Group - Advanced Cloud Security Engineering</h2>
+            <h2 class="popup-title">MVL Group | Dubai, UAE - IT Engineer & Cloud Security Specialist</h2>
             <div class="popup-text">
-                <h3>🏛️ Microsoft 365 GCC G5 Administration</h3>
-                <p><strong>Challenge:</strong> Migrate 300-user infrastructure to Microsoft's sovereign cloud tier designed for U.S. Government workloads.</p>
-                <p><strong>Solution:</strong> Deployed GCC High environment hosted exclusively by screened U.S. personnel and audited against FedRAMP High controls, supporting DoD SRG L5 data classification.</p>
-                <p><strong>Impact:</strong> 100% compliance with federal security requirements while maintaining user productivity.</p>
+                <h3>🛡️ Prime DoD Contractor - Cloud Security Leadership</h3>
+                <p><strong>Role:</strong> Lead IT Engineer and Cloud Security Specialist for a prime contractor supporting the US Department of Defense, ensuring all systems meet rigorous FedRAMP, NIST, and CMMC standards.</p>
                 
-                <h3>🛡️ Sentinel-driven Security Operations Center</h3>
-                <p><strong>Architecture:</strong> Designed SOC leveraging Microsoft Sentinel as core SIEM, aggregating logs, Defender XDR signals, and third-party threat intelligence.</p>
-                <p><strong>Automation Achievements:</strong></p>
+                <h3>☁️ Microsoft 365 GCC G5 Migration & Management</h3>
+                <p><strong>Project:</strong> Spearheaded the complete migration of all users from Google Workspace to Microsoft 365 GCC G5, a critical initiative to achieve CMMC compliance and align with NIST 800-171 R3 guidelines.</p>
+                <p><strong>Technical Implementation:</strong></p>
                 <ul>
-                    <li>Auto-isolate compromised endpoints within 60 seconds of detection</li>
-                    <li>Automated paging of on-call security personnel via PagerDuty integration</li>
-                    <li>Dynamic JIRA ticket creation for incident tracking and resolution</li>
-                    <li><strong>Result:</strong> Reduced MTTR from 2 hours to 20 minutes (83% improvement)</li>
+                    <li>Planned and executed seamless migration with zero data loss</li>
+                    <li>Configured advanced security policies and compliance controls</li>
+                    <li>Established secure collaboration environments for government contractors</li>
+                    <li>Implemented conditional access policies and multi-factor authentication</li>
                 </ul>
                 
                 <div class="popup-chart-container">
                     <canvas id="mvl-detail-chart"></canvas>
                 </div>
                 
-                <h3>🔒 Data Loss Prevention & Compliance</h3>
-                <p><strong>Implementation:</strong> Deployed Microsoft Entra DLP with Purview classification engine, identifying 62 custom sensitive-information types based on NIST 800-171 requirements.</p>
-                <p><strong>Features:</strong></p>
+                <h3>🌐 Network Infrastructure Architecture</h3>
+                <p><strong>On-Premise Network Design:</strong> Architected and managed the entire on-premise network infrastructure using a comprehensive Ubiquiti UniFi stack.</p>
+                <p><strong>Components Managed:</strong></p>
                 <ul>
-                    <li>Automatic encryption of outbound emails containing CUI</li>
-                    <li>Dynamic watermarking of PDF documents</li>
-                    <li>Real-time content scanning and remediation</li>
-                    <li>95% DLP coverage across all data flows</li>
+                    <li>UniFi switches for core network connectivity</li>
+                    <li>Security camera system for physical security monitoring</li>
+                    <li>Wireless access points for seamless connectivity</li>
+                    <li>Centralized management through UniFi Controller</li>
                 </ul>
                 
-                <h3>🎯 Zero-Trust Network Implementation</h3>
-                <p><strong>Technology:</strong> Deployed Zscaler ZPA to establish identity-centric access control, eliminating traditional VPN architecture.</p>
-                <p><strong>Security Controls:</strong></p>
+                <h3>  Zero-Trust Security Implementation</h3>
+                <p><strong>Zscaler Integration:</strong> Implemented a comprehensive Zero-Trust security model using Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to secure endpoint communication for a global user base.</p>
+                <p><strong>Security Benefits:</strong></p>
                 <ul>
-                    <li>Eliminated inbound ports completely</li>
-                    <li>Multi-factor validation on every request</li>
-                    <li>Conditional access policies with device posture checks</li>
-                    <li>Geofencing rules for location-based access</li>
-                    <li><strong>Achievement:</strong> 99.9% secure-access SLA with zero security incidents</li>
+                    <li>Eliminated traditional VPN vulnerabilities</li>
+                    <li>Provided secure access to applications regardless of user location</li>
+                    <li>Implemented policy-based access controls</li>
+                    <li>Enhanced visibility into user and application traffic</li>
+                </ul>
+                
+                <h3>🔗 Enterprise Application Integration</h3>
+                <p><strong>Identity Management:</strong> Integrated key business applications (Procore, BeyondTrust) into the Entra ID framework using SAML for secure, centralized identity management.</p>
+                <p><strong>Single Sign-On Benefits:</strong></p>
+                <ul>
+                    <li>Streamlined user access across multiple platforms</li>
+                    <li>Enhanced security through centralized authentication</li>
+                    <li>Reduced password-related security risks</li>
+                    <li>Improved user productivity and experience</li>
+                </ul>
+                
+                <h3>  Data Protection & Backup Strategy</h3>
+                <p><strong>Acronis Cyber Protect Implementation:</strong> Hardened Microsoft 365 data protection using Acronis Cyber Protect with immutable backups to satisfy CMMC requirements.</p>
+                <p><strong>Compliance Features:</strong></p>
+                <ul>
+                    <li>Immutable backup storage to prevent ransomware attacks</li>
+                    <li>Automated backup verification and testing</li>
+                    <li>Granular recovery options for critical business data</li>
+                    <li>Compliance reporting for audit requirements</li>
                 </ul>
             </div>
         </div>
@@ -1549,24 +1854,54 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">Purnayoo Arogya Nikethanam - IT Management</h2>
+            <h2 class="popup-title">Purnayoo Arogya Nikethanam | Kerala, India - IT Manager</h2>
             <div class="popup-text">
-                <p><strong>Healing Meets IT:</strong> Managed the complete technology stack for a 120-bed Ayurvedic hospital and yoga center. Created innovative solutions like building a hybrid server room adjacent to the herbal pharmacy with humidity sensors integrated into Grafana monitoring. This prevented steam from herbal decoctions from damaging network equipment while maintaining traditional healing practices.</p>
+                <h3>🏥 Healthcare IT Infrastructure Leadership</h3>
+                <p><strong>Scope:</strong> Led comprehensive modernization of the core IT infrastructure for a healthcare facility, implementing strategic upgrades that significantly enhanced security, stability, and operational efficiency.</p>
                 
-                <p><strong>Key Achievements:</strong></p>
+                <h3>🌐 Network Infrastructure Modernization</h3>
+                <p><strong>Network Re-architecture:</strong> Re-architected the complete network infrastructure with advanced VLAN segmentation and next-generation firewall implementation.</p>
+                <p><strong>Key Improvements:</strong></p>
                 <ul>
-                    <li>Implemented Electronic Medical Record (EMR) systems with HIPAA-compliant security</li>
-                    <li>Designed and deployed a 60-node Wi-Fi mesh network covering the entire facility</li>
-                    <li>Developed a secure tele-consultation platform for remote patient consultations</li>
-                    <li>Guided software development teams through ERP implementation sprints</li>
-                    <li>Increased system uptime to over 98% through proactive monitoring</li>
-                    <li>Trained 40 medical and administrative staff on cybersecurity hygiene practices</li>
-                    <li>Reduced IT-related downtime by 30% through optimized workflows</li>
-                    <li><strong>Implemented WhatsApp bot for appointment triage; front-desk call volume dropped 22%</strong></li>
+                    <li>Implemented VLAN segmentation for enhanced security</li>
+                    <li>Deployed next-generation firewall for advanced threat protection</li>
+                    <li>Established secure network zones for different functional areas</li>
+                    <li>Enhanced network monitoring and management capabilities</li>
                 </ul>
-            </div>
-            <div class="popup-chart-container">
-                <canvas id="purnayoo-detail-chart"></canvas>
+                
+                <div class="popup-chart-container">
+                    <canvas id="purnayoo-detail-chart"></canvas>
+                </div>
+                
+                <h3>⚡ System Performance & Reliability</h3>
+                <p><strong>Operational Excellence:</strong> Achieved significant improvements in system reliability and operational efficiency through strategic infrastructure upgrades and process improvements.</p>
+                <p><strong>Results Achieved:</strong></p>
+                <ul>
+                    <li>Reduced system downtime through proactive monitoring and maintenance</li>
+                    <li>Improved overall operational efficiency across all IT systems</li>
+                    <li>Enhanced system stability and performance</li>
+                    <li>Streamlined IT operations and support processes</li>
+                </ul>
+                
+                <h3>💻 Endpoint Management Optimization</h3>
+                <p><strong>N-Computing Implementation:</strong> Successfully implemented an N-Computing thin-client environment that delivered significant cost savings and management benefits.</p>
+                <p><strong>Benefits Delivered:</strong></p>
+                <ul>
+                    <li>Substantial reduction in hardware expenditure</li>
+                    <li>Simplified endpoint management and maintenance</li>
+                    <li>Centralized computing resources for better control</li>
+                    <li>Enhanced security through centralized data storage</li>
+                </ul>
+                
+                <h3>🏥 Healthcare Technology Integration</h3>
+                <p><strong>Complete Technology Stack Management:</strong> Managed the entire technology infrastructure for a 120-bed Ayurvedic hospital and yoga center, ensuring seamless integration of healthcare and administrative systems.</p>
+                <p><strong>Comprehensive Services:</strong></p>
+                <ul>
+                    <li>Healthcare system integration and management</li>
+                    <li>Administrative system coordination</li>
+                    <li>Staff training and technical support</li>
+                    <li>System security and data protection</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1577,18 +1912,64 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">Nagarjuna Ayurveda — ERP Roll-out & Secure Infrastructure</h2>
+            <h2 class="popup-title">Nagarjuna Ayurveda | Kerala, India - Systems Administrator</h2>
             <div class="popup-text">
-                <p><strong>ERP Implementation:</strong> Led a five-month Microsoft SQL + Odoo deployment that unified pharmacy, admissions, and billing; paper usage dropped 40%.</p>
+                <h3>🔄 Digital Transformation Leadership</h3>
+                <p><strong>ERP Migration Project:</strong> Led the successful migration from manual processing to a centralized ERP system, completely transforming company-wide operations and establishing modern digital workflows.</p>
                 
-                <p><strong>Network Hardening:</strong> Segmented VLANs for patient-data vs. guest Wi-Fi, introduced off-line snapshot backup, and configured Sentinel alerts for EMR tables.</p>
+                <h3>📊 Centralized ERP System Implementation</h3>
+                <p><strong>System Integration:</strong> Managed the complete implementation of a centralized ERP system that unified all business processes and operations.</p>
+                <p><strong>Transformation Results:</strong></p>
+                <ul>
+                    <li>Eliminated manual paper-based processes across the organization</li>
+                    <li>Centralized data management and reporting capabilities</li>
+                    <li>Streamlined business operations and workflows</li>
+                    <li>Enhanced data accuracy and accessibility</li>
+                </ul>
                 
-                <p><strong>Staff Enablement:</strong> Wrote SOPs and ran 10 hands-on workshops so clinicians could self-service reports—cut IT tickets by a third.</p>
+                <div class="popup-chart-container">
+                    <canvas id="nagarjuna-detail-chart"></canvas>
+                </div>
                 
-                <p><strong>Lab Integration:</strong> Integrated the new ERP with lab analyzers to auto-sync patient reports (saved 15 min per discharge).</p>
-            </div>
-            <div class="popup-chart-container">
-                <canvas id="nagarjuna-detail-chart"></canvas>
+                <h3>🔧 Comprehensive IT Support Services</h3>
+                <p><strong>End-to-End IT Management:</strong> Managed all aspects of IT operations including end-user support, network administration, and server maintenance for the entire organization.</p>
+                <p><strong>Service Areas:</strong></p>
+                <ul>
+                    <li>End-user technical support and troubleshooting</li>
+                    <li>Network infrastructure administration and maintenance</li>
+                    <li>Server management and performance optimization</li>
+                    <li>System security and backup management</li>
+                </ul>
+                
+                <h3>🏭 IoT Integration & Manufacturing Systems</h3>
+                <p><strong>Real-Time Production Monitoring:</strong> Integrated IoT devices from manufacturing units directly into the ERP system to enable real-time production monitoring and data collection.</p>
+                <p><strong>Integration Benefits:</strong></p>
+                <ul>
+                    <li>Real-time visibility into production processes</li>
+                    <li>Automated data collection from manufacturing equipment</li>
+                    <li>Enhanced production planning and scheduling</li>
+                    <li>Improved quality control and monitoring</li>
+                </ul>
+                
+                <h3>🛡️ Network Security & Administration</h3>
+                <p><strong>Security Implementation:</strong> Implemented comprehensive system administration practices and network security measures to protect organizational data and systems.</p>
+                <p><strong>Security Measures:</strong></p>
+                <ul>
+                    <li>Network security policy implementation</li>
+                    <li>User access control and authentication systems</li>
+                    <li>Data backup and recovery procedures</li>
+                    <li>System monitoring and maintenance protocols</li>
+                </ul>
+                
+                <h3>👥 Staff Training & Support</h3>
+                <p><strong>Knowledge Transfer:</strong> Provided comprehensive technical support and training for all staff members to ensure effective utilization of new systems and technologies.</p>
+                <p><strong>Training Programs:</strong></p>
+                <ul>
+                    <li>ERP system training for end users</li>
+                    <li>Technology adoption and best practices</li>
+                    <li>System security awareness training</li>
+                    <li>Ongoing technical support and troubleshooting</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1599,22 +1980,64 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">Lakeshore Toltest — Field-IT in Conflict Zones</h2>
+            <h2 class="popup-title">Lakeshore Toltest Corp | UAE, Afghanistan, & Iraq - IT Manager, International Operations</h2>
             <div class="popup-text">
-                <p><strong>Infrastructure Engineering:</strong> Engineered a VSAT + Cisco ASA backbone for USACE construction camps in UAE, Afghanistan, Iraq.</p>
+                <h3>🏛️ DoD Prime Contractor IT Leadership</h3>
+                <p><strong>Strategic Role:</strong> Served as the sole IT leader for a prime US Department of Defense contractor, managing the entire technology landscape across high-risk operational zones in multiple countries.</p>
                 
-                <p><strong>Data Operations:</strong> Stood-up ruggedised servers that synced CAD files nightly while prioritising real-time radio/VoIP.</p>
-                
-                <p><strong>Innovation & Documentation:</strong></p>
+                <h3>💼 Enterprise Infrastructure Management</h3>
+                <p><strong>Core Systems Administration:</strong> Administered comprehensive IT infrastructure including Active Directory, Exchange, and network systems through a structured JIRA ITSM system to support engineering and contracting services.</p>
+                <p><strong>System Management:</strong></p>
                 <ul>
-                    <li>Devised solar-UPS "grab-box" that powers PoE AP + switch for 24 h during generator outages</li>
-                    <li>Authored 45-page "Field-IT Playbook" adopted by three regional project managers</li>
-                    <li>Trained 12 local technicians on VSAT alignment and Cisco ASA backup-restore drills</li>
-                    <li>Documented standardized "grab-box" kit (pre-configured switch, PoE AP, solar UPS) for 24-h site stand-ups</li>
+                    <li>Active Directory domain administration and user management</li>
+                    <li>Microsoft Exchange email system management</li>
+                    <li>Network infrastructure administration and maintenance</li>
+                    <li>JIRA-based IT Service Management implementation</li>
                 </ul>
-            </div>
-            <div class="popup-chart-container">
-                <canvas id="ltc-detail-chart"></canvas>
+                
+                <div class="popup-chart-container">
+                    <canvas id="ltc-detail-chart"></canvas>
+                </div>
+                
+                <h3>🌐 Mission-Critical Connectivity Solutions</h3>
+                <p><strong>Communication Infrastructure:</strong> Managed mission-critical connectivity solutions including VSAT and fiber optic networks to ensure reliable communication across operational zones.</p>
+                <p><strong>Network Technologies:</strong></p>
+                <ul>
+                    <li>VSAT satellite communication systems</li>
+                    <li>Fiber optic network infrastructure</li>
+                    <li>Long-distance communication links</li>
+                    <li>Redundant connectivity for mission continuity</li>
+                </ul>
+                
+                <h3>🔒 Security & Network Optimization</h3>
+                <p><strong>Perimeter Security:</strong> Secured network perimeter using Cisco ASA firewalls and optimized traffic flow using Exinda appliances for enhanced performance and security.</p>
+                <p><strong>Security Implementation:</strong></p>
+                <ul>
+                    <li>Cisco ASA firewall configuration and management</li>
+                    <li>Network traffic optimization with Exinda appliances</li>
+                    <li>Perimeter security monitoring and management</li>
+                    <li>Network performance optimization and troubleshooting</li>
+                </ul>
+                
+                <h3>⚙️ Military ERP & Application Support</h3>
+                <p><strong>Specialized Systems:</strong> Deployed and configured the military's RMS ERP system and provided comprehensive hardware/software support for all endpoint and engineering applications.</p>
+                <p><strong>Application Management:</strong></p>
+                <ul>
+                    <li>Military RMS ERP system deployment and configuration</li>
+                    <li>Engineering application support and maintenance</li>
+                    <li>Hardware and software troubleshooting</li>
+                    <li>End-user training and technical support</li>
+                </ul>
+                
+                <h3>🌍 International Operations Coordination</h3>
+                <p><strong>Multi-Location Management:</strong> Coordinated IT operations across multiple international locations in challenging operational environments.</p>
+                <p><strong>Operational Challenges:</strong></p>
+                <ul>
+                    <li>High-risk operational zone technology support</li>
+                    <li>Remote location infrastructure management</li>
+                    <li>Cross-cultural team coordination</li>
+                    <li>Emergency response and business continuity planning</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1625,23 +2048,64 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">KBR (NATO Contract) — Xerox Fleet Reliability Ops</h2>
+            <h2 class="popup-title">KBR, Inc. | Afghanistan - Xerox Service Support Professional (Civilian Contractor)</h2>
             <div class="popup-text">
-                <p><strong>MFP Fleet Lead:</strong> Maintained 120+ Xerox WorkCentre devices across five NATO bases, averaging ≤2h response to service calls.</p>
+                <h3>🎖️ Military Support Operations</h3>
+                <p><strong>Embedded Contractor Role:</strong> Embedded with British and NATO forces across Afghanistan to service and maintain mission-critical Xerox printing and documentation equipment in active operational zones.</p>
                 
-                <p><strong>Predictive Maintenance:</strong> Analysed meter reads + consumable telemetry; introduced just-in-time toner swaps that cut unexpected outages by 60%.</p>
-                
-                <p><strong>Security & Compliance:</strong></p>
+                <h3>🚁 High-Risk Environment Operations</h3>
+                <p><strong>Operational Mobility:</strong> Traveled extensively via military transport including C-130 aircraft, Chinook helicopters, and armed convoys into active operational zones to provide critical technical support.</p>
+                <p><strong>Transport Methods:</strong></p>
                 <ul>
-                    <li>Enforced TLS/802.1X on all printers, blocking rogue USB firmware loads noted in DoD advisories</li>
-                    <li>Rolled out secure "Follow-Me Print" queues on all classified networks (reduced data-leak risk)</li>
-                    <li>Conducted quarterly firmware audits, meeting DoD STIG compliance ahead of schedule</li>
+                    <li>C-130 Hercules transport aircraft</li>
+                    <li>Chinook helicopter transport</li>
+                    <li>Armed convoy protection details</li>
+                    <li>Forward operating base deployments</li>
                 </ul>
                 
-                <p><strong>Logistics Excellence:</strong> Coordinated parts logistics from Dubai hub → five Afghan bases, slashing printer downtime by 32%.</p>
-            </div>
-            <div class="popup-chart-container">
-                <canvas id="kbr-detail-chart"></canvas>
+                <div class="popup-chart-container">
+                    <canvas id="kbr-detail-chart"></canvas>
+                </div>
+                
+                <h3>⚡ Mission-Critical System Maintenance</h3>
+                <p><strong>100% Uptime Achievement:</strong> Ensured 100% uptime for vital printing and documentation systems under extreme conditions, supporting critical military operations and communications.</p>
+                <p><strong>System Reliability:</strong></p>
+                <ul>
+                    <li>Mission-critical equipment maintenance</li>
+                    <li>Emergency repair and troubleshooting</li>
+                    <li>Preventive maintenance scheduling</li>
+                    <li>Rapid response technical support</li>
+                </ul>
+                
+                <h3>🖨️ Fleet Management & Support</h3>
+                <p><strong>Equipment Scope:</strong> Maintained 120+ Xerox WorkCentre devices across multiple NATO bases, ensuring reliable document processing and communication capabilities.</p>
+                <p><strong>Fleet Management:</strong></p>
+                <ul>
+                    <li>Multi-base equipment coordination</li>
+                    <li>Inventory management and parts logistics</li>
+                    <li>Performance monitoring and optimization</li>
+                    <li>User training and technical support</li>
+                </ul>
+                
+                <h3>🌍 International Military Collaboration</h3>
+                <p><strong>Coalition Support:</strong> Collaborated with international military personnel including British and NATO forces to maintain critical infrastructure and communication systems.</p>
+                <p><strong>Collaborative Efforts:</strong></p>
+                <ul>
+                    <li>Multi-national team coordination</li>
+                    <li>Cross-cultural communication and support</li>
+                    <li>Standard operating procedure development</li>
+                    <li>Knowledge transfer and training programs</li>
+                </ul>
+                
+                <h3>🎯 Extreme Environment Expertise</h3>
+                <p><strong>Challenging Conditions:</strong> Provided reliable technical support in extreme environmental conditions including desert climates, security threats, and austere operational environments.</p>
+                <p><strong>Environmental Challenges:</strong></p>
+                <ul>
+                    <li>Extreme temperature and dust conditions</li>
+                    <li>Limited infrastructure and resources</li>
+                    <li>Security-conscious operational procedures</li>
+                    <li>Remote location logistics and support</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1652,16 +2116,64 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">Accel Frontline → DHL — Windows & Network Admin</h2>
+            <h2 class="popup-title">ACCEL Frontline (on behalf of DHL India) | Delhi, India - Resident Engineer</h2>
             <div class="popup-text">
-                <p><strong>Global Shipment Uptime:</strong> Supported 400+ DHL workstations and 25 branch servers; zero unscheduled downtime in peak season '07.</p>
+                <h3>📦 Large-Scale Logistics IT Support</h3>
+                <p><strong>Comprehensive Support Role:</strong> Provided comprehensive field service and resident engineering support for DHL India's large-scale logistics operations, ensuring reliable IT infrastructure for critical shipping and distribution services.</p>
                 
-                <p><strong>Endpoint Defence:</strong> Deployed & tuned McAfee ePO policies, shrinking malware incidents from weekly to < 1 per quarter.</p>
+                <h3>🌐 Network Infrastructure Management</h3>
+                <p><strong>Multi-Site Network Administration:</strong> Managed LAN/WAN systems, McAfee Antivirus Server, and resolved network issues across multiple DHL sites throughout India.</p>
+                <p><strong>Network Services:</strong></p>
+                <ul>
+                    <li>LAN/WAN system administration and troubleshooting</li>
+                    <li>McAfee Antivirus Server management and deployment</li>
+                    <li>Multi-site network issue resolution</li>
+                    <li>Network performance optimization and monitoring</li>
+                </ul>
                 
-                <p><strong>Packet Forensics:</strong> Used Wireshark & Iperf to trace latency spikes on MPLS links, shaving average file-transfer time by 35%.</p>
-            </div>
-            <div class="popup-chart-container">
-                <canvas id="accel-detail-chart"></canvas>
+                <div class="popup-chart-container">
+                    <canvas id="accel-detail-chart"></canvas>
+                </div>
+                
+                <h3>🖥️ Server Administration & Email Systems</h3>
+                <p><strong>Server Management:</strong> Administered Windows servers and configured Lotus Notes for end-users, ensuring reliable email communication and server performance across the organization.</p>
+                <p><strong>System Administration:</strong></p>
+                <ul>
+                    <li>Windows server administration and maintenance</li>
+                    <li>Lotus Notes configuration and user support</li>
+                    <li>Email system management and troubleshooting</li>
+                    <li>Server performance monitoring and optimization</li>
+                </ul>
+                
+                <h3>⚡ Enterprise-Scale Operations Support</h3>
+                <p><strong>Large-Scale Infrastructure:</strong> Supported 400+ DHL workstations and 25 branch servers, achieving zero unscheduled downtime during peak operational seasons.</p>
+                <p><strong>Operational Excellence:</strong></p>
+                <ul>
+                    <li>400+ workstation support and maintenance</li>
+                    <li>25 branch server administration</li>
+                    <li>Zero downtime achievement during peak seasons</li>
+                    <li>Proactive monitoring and preventive maintenance</li>
+                </ul>
+                
+                <h3>🔧 Network Optimization & Security</h3>
+                <p><strong>Performance Enhancement:</strong> Implemented network optimization solutions and security protocols to enhance system performance and protect critical logistics data.</p>
+                <p><strong>Optimization Initiatives:</strong></p>
+                <ul>
+                    <li>Network performance analysis and optimization</li>
+                    <li>Security protocol implementation</li>
+                    <li>System vulnerability assessment and remediation</li>
+                    <li>Network traffic monitoring and management</li>
+                </ul>
+                
+                <h3>👥 Training & Knowledge Transfer</h3>
+                <p><strong>Staff Development:</strong> Provided comprehensive technical training and support to local staff, ensuring knowledge transfer and building local technical capabilities.</p>
+                <p><strong>Training Programs:</strong></p>
+                <ul>
+                    <li>Technical skills training for local staff</li>
+                    <li>System administration best practices</li>
+                    <li>Troubleshooting methodologies and procedures</li>
+                    <li>Ongoing technical support and mentoring</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1672,62 +2184,50 @@
             <div class="popup-close">
                 <i class="fas fa-times"></i>
             </div>
-            <h2 class="popup-title">My Accelerated Learning System</h2>
+            <h2 class="popup-title">Professional Development & Continuous Learning</h2>
             <div class="popup-text">
-                <h3>🧠 Core Learning Philosophy</h3>
-                <p>How I learn faster, deeper, and without burn-out through a systematic approach that combines ancient wisdom with modern productivity techniques.</p>
+                <h3>🎯 Strategic Learning Approach</h3>
+                <p>My professional development strategy focuses on staying ahead of technology trends while building deep expertise in core infrastructure and security domains. This systematic approach has enabled me to maintain relevance across rapidly evolving technology landscapes.</p>
                 
-                <h3>⏰ 1. Pomodoro × Pranayama Integration</h3>
-                <p><strong>Method:</strong> 25-minute laser-focus sprints on new material, followed by 5 minutes of slow ujjayi breathing.</p>
-                <p><strong>Science:</strong> The breath reset lowers cortisol and locks lessons into long-term memory, enabling 8–10 cycles daily without mental fog.</p>
-                <p><strong>Result:</strong> 92% retention rate vs. traditional study methods</p>
+                <h3>📚 1. Hands-On Learning Methodology</h3>
+                <p><strong>Approach:</strong> Every new technology or concept is immediately applied in a practical project environment.</p>
+                <p><strong>Benefit:</strong> This ensures theoretical knowledge is immediately translated into practical skills and real-world understanding.</p>
+                <p><strong>Results:</strong> 90% faster skill acquisition through direct application and experimentation.</p>
                 
-                <h3>🔨 2. Project-First, Documentation-Second</h3>
-                <p><strong>Approach:</strong> Begin every topic by framing a micro-project (e.g., "build a Terraform module that auto-labels Sentinel workspaces").</p>
-                <p><strong>Benefit:</strong> Only after proof-of-concept works do I deep-dive documentation—anchoring abstract theory to real muscle memory.</p>
-                <p><strong>Effectiveness:</strong> 90% faster concept mastery through hands-on application</p>
+                <h3>  2. Cross-Domain Knowledge Integration</h3>
+                <p><strong>Strategy:</strong> Draw connections between different technology domains to create comprehensive understanding:</p>
+                <ul>
+                    <li>Network security principles applied to cloud architecture</li>
+                    <li>Traditional infrastructure concepts mapped to modern containerized environments</li>
+                    <li>Compliance frameworks adapted across different technology stacks</li>
+                </ul>
+                <p><strong>Impact:</strong> This integrated approach enables innovative solutions and rapid adaptation to new technologies.</p>
                 
                 <div class="popup-chart-container">
                     <canvas id="learning-chart"></canvas>
                 </div>
                 
-                <h3>🌐 3. Cross-Disciplinary Pattern Recognition</h3>
-                <p><strong>Technique:</strong> Map new concepts onto familiar domains from different fields:</p>
+                <h3>📊 3. Systematic Skill Assessment & Tracking</h3>
+                <p><strong>System:</strong> Regular evaluation of technical competencies across key domains:</p>
                 <ul>
-                    <li>Kubernetes affinity ↔ Ayurvedic dosha balancing</li>
-                    <li>Zero-Trust flows ↔ Tantric ida/pingala gating</li>
-                    <li>Git branching ↔ Yogic chakra sequencing</li>
+                    <li>Cloud platforms and services</li>
+                    <li>Security frameworks and compliance standards</li>
+                    <li>Infrastructure automation and management</li>
+                    <li>Leadership and communication skills</li>
                 </ul>
-                <p><strong>Impact:</strong> This playful analogy hunting forces 360° understanding instead of rote memorization</p>
+                <p><strong>Process:</strong> Monthly review of skill development goals with structured learning plans</p>
                 
-                <h3>📊 4. Metric-Driven Mastery Tracking</h3>
-                <p><strong>System:</strong> Skill Scorecards (0–100) for Cloud, Security, Automation, Leadership tracked in Notion.</p>
-                <p><strong>Process:</strong> Weekly formula tallies: labs completed, documentation reviewed, incidents resolved.</p>
-                <p><strong>Trigger:</strong> Anything < 80 automatically schedules learning sprint for following week</p>
-                
-                <h3>🤖 5. AI as Speed-Coach, Not Crutch</h3>
-                <p><strong>Usage:</strong> Copilot/Cursor drafts code or summarizes RFCs, but I always re-derive logic line-by-line.</p>
-                <p><strong>Goal:</strong> Accelerated comprehension, not autopilot dependency</p>
-                <p><strong>Validation:</strong> Can explain and modify any AI-generated solution completely</p>
-                
-                <h3>💪 6. Mind-Body Optimization Protocol</h3>
-                <p><strong>Daily Regime:</strong></p>
-                <ul>
-                    <li>5 AM wake-up for peak cognitive hours</li>
-                    <li>20,000 steps for enhanced neuroplasticity</li>
-                    <li>No refined sugar for stable glucose</li>
-                    <li>Vegetarian diet for mental clarity</li>
-                    <li>20,000 mantra repetitions for focus training</li>
-                    <li>7+ hours quality sleep for memory consolidation</li>
-                </ul>
-                <p><strong>Principle:</strong> Sharp code comes from a calibrated nervous system</p>
+                <h3>🤖 4. Technology-Assisted Learning</h3>
+                <p><strong>Approach:</strong> Leverage modern learning tools and platforms for accelerated skill development</p>
+                <p><strong>Focus:</strong> Balance between automated learning assistance and deep understanding</p>
+                <p><strong>Outcome:</strong> Faster comprehension while maintaining thorough technical competency</p>
                 
                 <h3>🎯 Measurable Results</h3>
                 <ul>
-                    <li>✅ Two Microsoft Expert certifications earned in 2024</li>
-                    <li>✅ 4× faster Sentinel rollout at MVL vs. industry average</li>
-                    <li>✅ Zero study-burnout days in past three years</li>
-                    <li>✅ 95% knowledge retention after 6 months</li>
+                    <li>✅ Microsoft Azure Solutions Architect Expert certification achieved</li>
+                    <li>✅ Successfully led cloud migration projects ahead of schedule</li>
+                    <li>✅ Maintained technical relevance across 18+ years of career</li>
+                    <li>✅ Consistent delivery of complex technical projects</li>
                 </ul>
             </div>
         </div>
@@ -1871,6 +2371,49 @@
             </div>
             <div class="popup-chart-container">
                 <canvas id="maker-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photography & Visual Arts Popup -->
+    <div class="popup-overlay" id="popup-photography">
+        <div class="popup-content">
+            <div class="popup-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="popup-title">Photography & Visual Arts</h2>
+            <div class="popup-text">
+                <h3>📸 Digital Storytelling</h3>
+                <p>Combining technical precision with artistic vision to document both professional projects and personal journeys.</p>
+                
+                <h3>🎨 Creative Projects</h3>
+                <ul>
+                    <li><strong>Technical Documentation:</strong> Professional photography for IT infrastructure projects and system deployments</li>
+                    <li><strong>Travel Photography:</strong> Capturing landscapes and cultural moments during solo expeditions across challenging terrains</li>
+                    <li><strong>Macro Photography:</strong> Detailed palm photography for palmistry analysis and AI training datasets</li>
+                    <li><strong>Time-lapse Projects:</strong> Documenting construction and installation processes for project portfolios</li>
+                </ul>
+                
+                <div class="popup-chart-container">
+                    <canvas id="photography-chart"></canvas>
+                </div>
+                
+                <h3>🔧 Technical Integration</h3>
+                <p>Photography skills directly support technical work through:</p>
+                <ul>
+                    <li>Visual documentation of network infrastructure and installations</li>
+                    <li>Creating training materials and procedural guides</li>
+                    <li>Before/after project documentation for stakeholder reporting</li>
+                    <li>Building visual content for presentations and proposals</li>
+                </ul>
+                
+                <h3>🎯 Equipment & Techniques</h3>
+                <ul>
+                    <li>DSLR and mirrorless camera systems for various scenarios</li>
+                    <li>Drone photography for infrastructure surveys and documentation</li>
+                    <li>Photo editing and post-processing for professional presentation</li>
+                    <li>360-degree photography for immersive documentation</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -2400,6 +2943,35 @@
                                     suggestedMax: 100
                                 }
                             }
+                        }
+                    });
+                    break;
+
+                case 'popup-photography':
+                    createModalChart('photography-chart', {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Technical Documentation', 'Travel Photography', 'Macro Photography', 'Professional Projects'],
+                            datasets: [{
+                                data: [30, 25, 20, 25],
+                                backgroundColor: [
+                                    'rgba(14, 165, 233, 0.7)',
+                                    'rgba(249, 115, 22, 0.7)',
+                                    'rgba(101, 163, 13, 0.7)',
+                                    'rgba(139, 92, 246, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(14, 165, 233, 1)',
+                                    'rgba(249, 115, 22, 1)',
+                                    'rgba(101, 163, 13, 1)',
+                                    'rgba(139, 92, 246, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
                         }
                     });
                     break;
@@ -2938,43 +3510,6 @@
                     maintainAspectRatio: false,
                     scales: {
                         y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    }
-                }
-            });
-
-            // Certifications Chart
-            new Chart(document.getElementById('certs-chart'), {
-                type: 'horizontalBar',
-                data: {
-                    labels: ['Azure SA', 'M365 Admin', 'MCSE', 'MCSA', 'Xerox SE'],
-                    datasets: [{
-                        label: 'Certification Proficiency',
-                        data: [100, 100, 90, 90, 85],
-                        backgroundColor: [
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(14, 165, 233, 0.7)',
-                            'rgba(14, 165, 233, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(14, 165, 233, 1)',
-                            'rgba(14, 165, 233, 1)',
-                            'rgba(14, 165, 233, 1)',
-                            'rgba(14, 165, 233, 1)',
-                            'rgba(14, 165, 233, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
                             beginAtZero: true,
                             max: 100
                         }
