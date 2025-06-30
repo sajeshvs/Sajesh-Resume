@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajesh Sukumaran - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .section-title {
+            color: #1e3a8a; /* blue-800 */
+            border-bottom: 2px solid #dbeafe; /* blue-100 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .job-title {
+            color: #1e293b; /* slate-800 */
+            font-weight: 600;
+        }
+        .company-info {
+            color: #475569; /* slate-600 */
+            font-weight: 500;
+        }
+        .icon {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+            color: #1e3a8a; /* blue-800 */
+            flex-shrink: 0;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .main-container {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="bg-slate-800 text-white p-8 text-center">
+            <h1 class="text-4xl font-bold tracking-tight">SAJESH SUKUMARAN</h1>
+            <h2 class="text-xl font-light text-slate-300 mt-2">IT Engineer | Infrastructure & Cloud Security Specialist</h2>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <!-- Left Column (Contact, Skills, Certs) -->
+            <aside class="md:col-span-1 bg-slate-50 p-6">
+                <!-- Contact -->
+                <section>
+                    <h3 class="section-title">Contact</h3>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li class="flex items-center">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5h-1.5A13.5 13.5 0 012 3.5z" clip-rule="evenodd" /></svg>
+                            <span>+971 50 391 7080</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" /><path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" /></svg>
+                            <span>v.s.sajesh@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.1.4-.27.615-.454L16 14.8V7a6 6 0 00-12 0v7.8l5.369 3.552zM10 6a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" /></svg>
+                            <span>Jumeirah Lake Towers, Dubai, UAE</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Key Skills -->
+                <section class="mt-8">
+                    <h3 class="section-title">Key Skills</h3>
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Cloud & Identity Security</h4>
+                            <p class="text-slate-600">Microsoft Azure (Solutions Architect Expert), M365 GCC G5, Entra ID, Conditional Access, MFA, Azure Backup/Files, Zscaler (ZPA/ZIA)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Security Ops & Compliance</h4>
+                            <p class="text-slate-600">Microsoft Defender XDR, Sentinel, NIST SP 800-171, CMMC Level 2, Zero Trust, FedRAMP</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Systems Administration</h4>
+                            <p class="text-slate-600">Active Directory, Exchange, Windows Server/Desktop, VMware, Hyper-V</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Network & Firewall</h4>
+                            <p class="text-slate-600">Ubiquiti UniFi, FortiGate (Basic Config), Cisco ASA, Cisco Switching, VSAT</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Data Protection</h4>
+                             <p class="text-slate-600">Acronis Cyber Protect, Immutable Storage</p>
+                        </div>
+                         <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">ITSM & Applications</h4>
+                             <p class="text-slate-600">JIRA, BeyondTrust, Procore, RMS ERP, AutoCAD</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Certifications -->
+                <section class="mt-8">
+                    <h3 class="section-title">Certifications</h3>
+                    <ul class="space-y-2 text-sm text-slate-700 list-disc list-inside">
+                        <li>Microsoft Certified: Azure Solutions Architect Expert</li>
+                        <li>Microsoft Certified: Azure Administrator Associate</li>
+                        <li>Procore Certified Administrator</li>
+                        <li>Certified Xerox Service Support Professional</li>
+                        <li>MCSA/MCSE (Legacy)</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Right Column (Summary & Experience) -->
+            <main class="md:col-span-2 p-8">
+                <!-- Professional Summary -->
+                <section>
+                    <h3 class="section-title">Professional Summary</h3>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        A results-driven and security-focused IT professional with over 18 years of experience designing, securing, and managing enterprise infrastructure across corporate and high-stakes operational environments. Proven expertise in migrating legacy systems to secure cloud platforms and hardening infrastructure to meet stringent compliance standards, including NIST and CMMC. Adept at implementing Zero-Trust architectures and ensuring resilient IT operations in demanding, mission-critical settings, from global military support to modern corporate enterprises.
+                    </p>
+                </section>
+
+                <!-- Professional Experience -->
+                <section class="mt-8">
+                    <h3 class="section-title">Professional Experience</h3>
+                    <div class="space-y-6">
+                        <!-- MVL Group -->
+                        <div class="text-sm">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="job-title">IT Engineer & Cloud Security Specialist</h4>
+                                <span class="text-xs font-medium text-slate-500">May 2023 – Present</span>
+                            </div>
+                            <p class="company-info">MVL Group | Dubai, UAE</p>
+                            <ul class="list-disc list-outside pl-5 mt-2 space-y-1 text-slate-600">
+                                <li>Spearheaded the complete migration of all users from Google Workspace to Microsoft 365 GCC G5 to achieve CMMC compliance and align with NIST 800-171 R3 guidelines.</li>
+                                <li>Architected and manage the entire on-premise network using a Ubiquiti UniFi stack, including switches, security cameras, and access points.</li>
+                                <li>Implemented a Zero-Trust security model using Zscaler (ZIA/ZPA) to secure endpoint communication for a global user base.</li>
+                                <li>Integrated key business applications (Procore, BeyondTrust) into the Entra ID framework using SAML for secure, centralized identity management.</li>
+                                <li>Hardened Microsoft 365 data protection using Acronis Cyber Protect with immutable backups to satisfy CMMC requirements.</li>
+                            </ul>
+                        </div>
+                        <!-- Purnayoo Arogya Nikethanam -->
+                        <div class="text-sm">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="job-title">IT Manager</h4>
+                                <span class="text-xs font-medium text-slate-500">Sep 2019 – Mar 2023</span>
+                            </div>
+                            <p class="company-info">Purnayoo Arogya Nikethanam | Kerala, India</p>
+                            <ul class="list-disc list-outside pl-5 mt-2 space-y-1 text-slate-600">
+                                <li>Led a comprehensive modernization of the core IT infrastructure, re-architecting the network with VLAN segmentation and a next-generation firewall.</li>
+                                <li>Reduced system downtime and improved operational efficiency through strategic infrastructure upgrades and process improvements.</li>
+                                <li>Implemented an N-Computing thin-client environment, successfully cutting hardware expenditure and simplifying endpoint management.</li>
+                            </ul>
+                        </div>
+                         <!-- Nagarjuna Ayurveda -->
+                        <div class="text-sm">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="job-title">Systems Administrator</h4>
+                                <span class="text-xs font-medium text-slate-500">Jun 2014 – Sep 2019</span>
+                            </div>
+                            <p class="company-info">Nagarjuna Ayurveda | Kerala, India</p>
+                             <ul class="list-disc list-outside pl-5 mt-2 space-y-1 text-slate-600">
+                                <li>Led the successful migration from manual processing to a centralized ERP system, transforming company-wide operations.</li>
+                                <li>Managed all end-user support, network administration, and server maintenance for the organization.</li>
+                                <li>Integrated IoT devices from manufacturing units directly into the ERP system for real-time production monitoring.</li>
+                            </ul>
+                        </div>
+                         <!-- Lakeshore Toltest Corp -->
+                        <div class="text-sm">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="job-title">IT Manager, International Operations</h4>
+                                <span class="text-xs font-medium text-slate-500">Mar 2010 – May 2014</span>
+                            </div>
+                            <p class="company-info">Lakeshore Toltest Corp | UAE, Afghanistan, & Iraq</p>
+                            <ul class="list-disc list-outside pl-5 mt-2 space-y-1 text-slate-600">
+                                <li>Served as the sole IT lead for a prime US DoD contractor, managing the entire technology landscape across high-risk operational zones.</li>
+                                <li>Administered Active Directory, Exchange, and network infrastructure through a JIRA ITSM system to support engineering and contracting services.</li>
+                                <li>Managed mission-critical connectivity (VSAT, fiber optics), secured the perimeter with Cisco ASA firewalls, and optimized traffic with Exinda appliances.</li>
+                                <li>Deployed and configured the military's RMS ERP system and provided comprehensive hardware/software support.</li>
+                            </ul>
+                        </div>
+                         <!-- KBR, Inc. -->
+                        <div class="text-sm">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="job-title">Xerox Service Support Professional (Civilian Contractor)</h4>
+                                <span class="text-xs font-medium text-slate-500">Feb 2008 – Jan 2010</span>
+                            </div>
+                            <p class="company-info">KBR, Inc. | Afghanistan</p>
+                             <ul class="list-disc list-outside pl-5 mt-2 space-y-1 text-slate-600">
+                                <li>Embedded with British and NATO forces across Afghanistan to service and maintain mission-critical Xerox documentation equipment.</li>
+                                <li>Traveled extensively via military transport into active operational zones, ensuring 100% uptime for vital systems under extreme conditions.</li>
+                            </ul>
+                        </div>
+                        <!-- ACCEL Frontline -->
+                        <div class="text-sm">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="job-title">Resident Engineer</h4>
+                                <span class="text-xs font-medium text-slate-500">Aug 2006 – Jan 2008</span>
+                            </div>
+                            <p class="company-info">ACCEL Frontline (on behalf of DHL India) | Delhi, India</p>
+                             <ul class="list-disc list-outside pl-5 mt-2 space-y-1 text-slate-600">
+                                <li>Provided comprehensive field service and resident engineering support for DHL India's large-scale logistics operations.</li>
+                                <li>Managed LAN/WAN systems, McAfee Antivirus Server, and resolved network issues across multiple sites.</li>
+                                <li>Administered Windows servers and configured Lotus Notes for end-users.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
